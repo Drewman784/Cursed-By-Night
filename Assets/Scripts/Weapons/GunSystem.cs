@@ -5,7 +5,6 @@ using TMPro;
 
 public class GunSystem : MonoBehaviour
 {
-
     //Gun stats
     public int damage;
     public float timeBetweenShooting, spread, range, reloadTime, timeBetweenShots;
@@ -41,7 +40,7 @@ public class GunSystem : MonoBehaviour
         text.SetText(bulletsLeft + " / " + magazineSize);
     }
 
-    private void MyInput() 
+    private void MyInput()
     {
         if (allowButtonHold) shooting = Input.GetKey(KeyCode.Mouse0);
         else shooting = Input.GetKeyDown(KeyCode.Mouse0);
@@ -49,12 +48,13 @@ public class GunSystem : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading) Reload();
 
         //Shoot
-        if(readyToShoot && shooting && !reloading && bulletsLeft > 0)
+        if (readyToShoot && shooting && !reloading && bulletsLeft > 0)
         {
             bulletsShot = bulletsPerTap;
             Shoot();
         }
     }
+
     private void Shoot()
     {
         readyToShoot = false;
@@ -66,37 +66,25 @@ public class GunSystem : MonoBehaviour
         //Calculate Direction with Spread
         Vector3 direction = fpsCam.transform.forward + new Vector3(x, y, 0);
 
-        //RayCast
-        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out rayHit, range, whatIsEnemy))
+        // Single Raycast with Enemy Layer Mask
+        if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, range, whatIsEnemy))
         {
             Debug.Log(rayHit.collider.name);
 
-           // if (rayHit.collider.CompareTag("Enemy"))
-                //rayHit.collider.GetComponent<ShootingAi>().TakeDamage(damage);
-        }
-        RaycastHit hit;
-        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
-        {
-            Debug.Log(hit.transform.name);
-
-            Enemy Target = hit.transform.GetComponent<Enemy>();
-            if (Target != null)
+            Enemy target = rayHit.collider.GetComponent<Enemy>();
+            if (target != null)
             {
-                Debug.DrawLine(CamTransform.position + new Vector3(0f, 0f, 0f), hit.point, Color.green, 1f);
-                Target.TakeDamage(damage);
-
-               // GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
-               // Destroy(impactGO, 2f);
+                // Apply Damage
+                target.TakeDamage(damage);
+                Debug.DrawLine(CamTransform.position, rayHit.point, Color.green, 1f);
             }
-
             else
             {
-                Debug.DrawRay(CamTransform.position + new Vector3(0f, 0f, 0f), CamTransform.forward * 100f, Color.red, 1f);
+                Debug.DrawRay(CamTransform.position, CamTransform.forward * 100f, Color.red, 1f);
             }
         }
 
-
-            bulletsLeft--;
+        bulletsLeft--;
         bulletsShot--;
 
         Invoke("ResetShot", timeBetweenShooting);
@@ -104,15 +92,18 @@ public class GunSystem : MonoBehaviour
         if (bulletsShot > 0 && bulletsLeft > 0)
             Invoke("Shoot", timeBetweenShots);
     }
+
     private void ResetShot()
     {
         readyToShoot = true;
     }
+
     private void Reload()
     {
-        reloading = false;
+        reloading = true;
         Invoke("ReloadFinished", reloadTime);
     }
+
     private void ReloadFinished()
     {
         bulletsLeft = magazineSize;
