@@ -25,6 +25,8 @@ public class Player : MonoBehaviour
 
     private bool placing;
 
+    private bool dayCycle;
+
     [SerializeField] GameObject invenPoint;
 
     void Start()
@@ -80,7 +82,7 @@ public class Player : MonoBehaviour
 
                 defenseInteractableObject.TryToRepair(GetComponent<PlayerInventory>());
 
-            } else if(Input.GetKeyDown(KeyCode.E)){ //pick up nearby defense
+            } else if(Input.GetKeyDown(KeyCode.E) && dayCycle){ //pick up nearby defense
 
                 if(!GetComponent<PlayerInventory>().InventoryIsFull()){ //check that there's room in the inventory
                      //defenseInteractableObject.gameObject.transform.parent = invenPoint.transform; //parent object to player 
@@ -95,7 +97,7 @@ public class Player : MonoBehaviour
                 
             } 
         }else if(Input.GetKeyDown(KeyCode.R)){ //finish placing defense
-            if(!GetComponent<PlayerInventory>().InventoryIsEmpty()){
+            if(!GetComponent<PlayerInventory>().InventoryIsEmpty() && dayCycle){
                 if(PlaceObject()){
                  GetComponent<PlayerInventory>().SelectFromInventory().GetComponent<BoxCollider>().enabled = true;
                  GetComponent<PlayerInventory>().SelectFromInventory().GetComponentInChildren<BoxCollider>().enabled = true;
@@ -107,7 +109,7 @@ public class Player : MonoBehaviour
 
 
         else if(Input.GetKey(KeyCode.C)){ //place defense
-        if(!GetComponent<PlayerInventory>().InventoryIsEmpty()){
+        if(!GetComponent<PlayerInventory>().InventoryIsEmpty() && dayCycle){
             Debug.Log("placing now");
            PlaceObject();
         }
@@ -164,5 +166,9 @@ public class Player : MonoBehaviour
             return false;
         }
 
+    }
+
+    public void SetDayCycle(bool day){
+        dayCycle = day;
     }
 }
