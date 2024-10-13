@@ -155,6 +155,9 @@ MonoBehaviour:
   cycleLength: 15
   displayWindow: {fileID: 1056785606}
   displayText: {fileID: 1749715468}
+  daySkybox: {fileID: 2100000, guid: 1659a51f2a7a743f685d60f1e8e11019, type: 2}
+  nightSkybox: {fileID: 2100000, guid: afed8d8249aff4614b6fd742d3f9c14d, type: 2}
+  lightSource: {fileID: 450305973}
   EnterDay:
     m_PersistentCalls:
       m_Calls:
@@ -194,6 +197,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1600981}
+        m_TargetAssemblyTypeName: DayNightCycleController, Assembly-CSharp
+        m_MethodName: ChangeDaySkybox
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   EnterNight:
     m_PersistentCalls:
       m_Calls:
@@ -225,6 +240,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Player, Assembly-CSharp
         m_MethodName: SetDayCycle
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1600981}
+        m_TargetAssemblyTypeName: DayNightCycleController, Assembly-CSharp
+        m_MethodName: ChangeNightSkybox
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
