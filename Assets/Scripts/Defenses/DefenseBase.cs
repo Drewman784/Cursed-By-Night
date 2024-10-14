@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 //THIS SCRIPT ATTATCHES TO THE HITBOX OF THE DEFENSE
@@ -19,6 +20,11 @@ public class DefenseBase : MonoBehaviour
 
     private bool functioning;
 
+    private GameObject popupCanvas;
+
+    private bool popup;
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,20 +39,38 @@ public class DefenseBase : MonoBehaviour
         repairedMat = defDetails.GetRepairedMaterial();
         currentHealth = defDetails.GetCurrentHealth();
 
+        popupCanvas = transform.GetChild(1).gameObject;
+
+        DismissPopUp();
+        popup = false;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(popup){ //keep the popup facing the camera
+            //this references: https://discussions.unity.com/t/how-would-i-make-text-pop-up-above-an-object/694452/2
+            popupCanvas.transform.LookAt(Camera.main.transform.position);
+            //popupCanvas.transform.LookAt(new Vector3(Camera.main.transform.position.x,0, Camera.main.transform.position.z));
+            popupCanvas.transform.Rotate(0,180,0);
+        }
     }
     private void OnTriggerEnter(Collider other) { //when someone enters the range of the defense
-        Debug.Log("range 1");
-        if(other.CompareTag("Player")){
+
+        if(other.CompareTag("Player")){ //if player, give script info to move/use obj
             other.GetComponent<Player>().EnterDefenseRange(this);
-            Debug.Log("range2");
-        } else if(other.CompareTag("Enemy")){
+
+        } else if(other.CompareTag("Enemy")){ //if enemy, trap springs
             TriggerEffect(other.gameObject);
+        }
+    }
+
+    private void OnTriggerExit(Collider other) { //dismiss popup and remove self from player script
+        if(other.CompareTag("Player")){
+            other.GetComponent<Player>().DisengageDefenseInteractableObject(this);
+            Debug.Log("exit range");
+            DismissPopUp();
         }
     }
 
@@ -64,7 +88,7 @@ public class DefenseBase : MonoBehaviour
         }
     }
 
-    private void TriggerEffect(GameObject enemy){ 
+    private void TriggerEffect(GameObject enemy){ // trap effect
         if(functioning){
         //FILL IN WITH WHATEVER
         }
@@ -80,5 +104,24 @@ public class DefenseBase : MonoBehaviour
         }
 
         
+    }
+
+    public void RepairPopUp(){ //brings up a popup with information about repairs
+        if(currentHealth<healthMax){
+            popupCanvas.SetActive(true);
+            popupCanvas.GetComponentInChildren<TextMeshProUGUI>().text = "Press F to Repair";
+            popup = true;
+        }
+    }
+
+    public void MovePopUp(){ //brings up a popup with information about inventory
+        popupCanvas.SetActive(true);
+        popupCanvas.GetComponentInChildren<TextMeshProUGUI>().text = "Press E to Pick Up";
+        popup = true;
+    }
+
+    public void DismissPopUp(){ //puts popup away
+        popupCanvas.SetActive(false);
+        popup = false;
     }
 }

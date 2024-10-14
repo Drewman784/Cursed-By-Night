@@ -8,6 +8,7 @@ using System.Security.Cryptography;
 using System;
 using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
+using UnityEditor;
 
 public class Player : MonoBehaviour
 {
@@ -23,11 +24,9 @@ public class Player : MonoBehaviour
     private DefenseBase defenseInteractableObject;
     private bool defenseInteractable;
 
-    private bool placing;
-
     private bool dayCycle;
 
-    [SerializeField] GameObject invenPoint;
+    private bool objPreviewed;
 
     void Start()
     {
@@ -86,22 +85,33 @@ public class Player : MonoBehaviour
 
                 if(!GetComponent<PlayerInventory>().InventoryIsFull()){ //check that there's room in the inventory
                      //defenseInteractableObject.gameObject.transform.parent = invenPoint.transform; //parent object to player 
+
                      GetComponent<PlayerInventory>().AddToInventory(defenseInteractableObject.gameObject); //add to inventory
                      defenseInteractableObject.gameObject.GetComponent<BoxCollider>().enabled = false;
                      defenseInteractableObject.gameObject.GetComponentInChildren<BoxCollider>().enabled = false;
+                     defenseInteractableObject.DismissPopUp();
                      defenseInteractableObject.gameObject.SetActive(false); // make object inactive
                      defenseInteractable = false; //clear object from current possible interactions
                      defenseInteractableObject = null;
+                     objPreviewed = false;
 
                 }
                 
             } 
         }else if(Input.GetKeyDown(KeyCode.R)){ //finish placing defense
-            if(!GetComponent<PlayerInventory>().InventoryIsEmpty() && dayCycle){
-                if(PlaceObject()){
+            if(!GetComponent<PlayerInventory>().InventoryIsEmpty() && dayCycle){ //check that inventory isn't empty and right cycle for moving objects
+                if(objPreviewed){ //has the object been previewed?
+                    GetComponent<PlayerInventory>().SelectFromInventory().GetComponent<BoxCollider>().enabled = true;
+                     GetComponent<PlayerInventory>().SelectFromInventory().GetComponentInChildren<BoxCollider>().enabled = true;
+                    GetComponent<PlayerInventory>().RemoveFromInventory();
+                    objPreviewed =false;
+                    Debug.Log("object placed!");
+                } else if(PlaceObject()){ //put it down without previewing
                  GetComponent<PlayerInventory>().SelectFromInventory().GetComponent<BoxCollider>().enabled = true;
                  GetComponent<PlayerInventory>().SelectFromInventory().GetComponentInChildren<BoxCollider>().enabled = true;
                     GetComponent<PlayerInventory>().RemoveFromInventory();
+                    Debug.Log("object placed!");
+                    objPreviewed = false;
                 }
             }
         }
@@ -118,22 +128,34 @@ public class Player : MonoBehaviour
     }
 
     //REPAIR CODE
-    public void EnterDefenseRange(DefenseBase defObj)
+    public void EnterDefenseRange(DefenseBase defObj) // player enters interaction range with a defense object
     {
         defenseInteractableObject = defObj;
         defenseInteractable = true;
         Debug.Log("entered range");
+        if(dayCycle){
+            defObj.MovePopUp();
+        } else{
+            defObj.RepairPopUp();
+        }
+    }
+
+    public void DisengageDefenseInteractableObject(DefenseBase def){ //player exits interaction range with defense object
+        if(defenseInteractableObject = def){
+            defenseInteractableObject = null;
+            defenseInteractable = false;
+        }
     }
 
     //INVENTORY CODE
     //this method references: https://discussions.unity.com/t/displaying-the-ray-line/406529/8
     //this method also references: https://gamedevbeginner.com/raycasts-in-unity-made-easy/
-    private bool PlaceObject()
+    private bool PlaceObject() //player sends raycast to see where an object would be placed
     {
-        if (!GetComponent<PlayerInventory>().InventoryIsEmpty())
+        if (!GetComponent<PlayerInventory>().InventoryIsEmpty())//check that inventory isnt empty
         {
 
-            GameObject toPlace = GetComponent<PlayerInventory>().SelectFromInventory();
+            GameObject toPlace = GetComponent<PlayerInventory>().SelectFromInventory(); //get item from index
 
             Ray ray = new Ray(Camera.main.transform.position + new Vector3(0, .5f, 0), Camera.main.transform.forward * 20);
             RaycastHit hitData;
@@ -141,22 +163,27 @@ public class Player : MonoBehaviour
             Debug.DrawRay(Camera.main.transform.position + new Vector3(0, .5f, 0), Camera.main.transform.forward * 20, Color.green);
 
 
-            if (Physics.Raycast(ray, out hitData) /**&& hitData.distance<=15*/)
+            if (Physics.Raycast(ray, out hitData) /**&& hitData.distance<=15*/) //did the raycast hit something
             {
                 Debug.Log("YEAH");
                 //LineRenderer line = new LineRenderer();
                 //line.SetPosition(0, ray.origin);
                 //line.SetPosition(1, hitData.point);
-                if (hitData.collider.gameObject != toPlace)
+                if (hitData.collider.gameObject != toPlace && hitData.collider.gameObject.CompareTag("Environment")) //did it hit a valid place
                 {
-
                     toPlace.SetActive(true);
-                    toPlace.transform.position = hitData.point + new Vector3(0, toPlace.GetComponent<BoxCollider>().bounds.size.y / 2, 0);
+                    toPlace.transform.position = hitData.point + new Vector3(0, toPlace.GetComponent<MeshRenderer>().bounds.extents.y/2, 0);
+                    objPreviewed = true;
+                               return true;
+                } else{
+                    Debug.Log("raycast failed");
+                     return false;
                 }
-                return true;
+     
             }
             else
-            {
+            { 
+                Debug.Log("raycast failed");
                 return false;
             }
 
@@ -168,7 +195,8 @@ public class Player : MonoBehaviour
 
     }
 
-    public void SetDayCycle(bool day){
+    public void SetDayCycle(bool day){ //updates the cycle
         dayCycle = day;
+        Debug.Log("Player day =" + day+"!");
     }
 }
