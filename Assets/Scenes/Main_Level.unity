@@ -3347,7 +3347,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 79721739967742468, guid: ce12a42954b3943489bd3df545c3a609, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 79721739967742468, guid: ce12a42954b3943489bd3df545c3a609, type: 3}
       propertyPath: m_TagString
@@ -3405,6 +3405,10 @@ PrefabInstance:
       propertyPath: movement
       value: 
       objectReference: {fileID: 898602584}
+    - target: {fileID: 6196309456897860933, guid: ce12a42954b3943489bd3df545c3a609, type: 3}
+      propertyPath: MoveSpeed
+      value: 3.94
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
