@@ -229,7 +229,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1600983}
         m_TargetAssemblyTypeName: EnemySpawner, Assembly-CSharp
         m_MethodName: SpawnEnemies
-        m_Mode: 3
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3346,6 +3346,10 @@ PrefabInstance:
     - target: {fileID: 79721739967742468, guid: ce12a42954b3943489bd3df545c3a609, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 79721739967742468, guid: ce12a42954b3943489bd3df545c3a609, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2423806000400977016, guid: ce12a42954b3943489bd3df545c3a609, type: 3}
       propertyPath: m_LocalPosition.x
