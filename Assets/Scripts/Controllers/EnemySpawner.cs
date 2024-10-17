@@ -8,7 +8,7 @@ public class EnemySpawner : MonoBehaviour
 
     [SerializeField] GameObject enemyPrefab;
 
-    [SerializeField] GameObject tempEnemyHolder;
+    //[SerializeField] GameObject tempEnemyHolder;
     // Start is called before the first frame update
 
     private int daynum;
