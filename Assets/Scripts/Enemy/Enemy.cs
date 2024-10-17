@@ -11,14 +11,17 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] public float lookRadius = 10f;
 
+    [SerializeField] public float attackRadius = 5f;
+
     NavMeshAgent agent;
     public Transform Target;
     [SerializeField] public float MoveSpeed = 10;
-    public GameObject player;
-    public Player movement;
+    private GameObject player;
+    private Player movement;
 
     private void Awake()
     {
+        player = GameObject.Find("Player");
         movement = player.GetComponent<Player>();
     }
 
@@ -32,7 +35,11 @@ public class Enemy : MonoBehaviour
     {
         float distance = Vector3.Distance(Target.position, transform.position);
 
-        if (distance <= lookRadius)
+        if(distance<= attackRadius){ //if enemy is close enough to player, attack
+            GetComponent<Animator>().SetTrigger("Attack");
+        }
+
+        if (distance <= lookRadius) //if enemy is close enough to see player, follow player
         {
             agent.SetDestination(Target.position);
         }
@@ -48,7 +55,7 @@ public class Enemy : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, lookRadius);
     }
 
-    public void TakeDamage(float amount)
+    public void TakeDamage(float amount) //enemy takes damage
     {
         health -= amount;
         Debug.Log("Enemy Health: " + health); // Debug log for health tracking
@@ -59,7 +66,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void Die()
+    private void Die() //enemy dies
     {
         Destroy(gameObject);
     }
