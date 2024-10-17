@@ -764,7 +764,7 @@ PrefabInstance:
       addedObject: {fileID: 898602582}
     - targetCorrespondingSourceObject: {fileID: 6057774452019297417, guid: 5c12858493102eb4ab6631b358179706, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 898602583}
+      addedObject: {fileID: 898602585}
   m_SourcePrefab: {fileID: 100100000, guid: 5c12858493102eb4ab6631b358179706, type: 3}
 --- !u!1 &573951476
 GameObject:
@@ -1292,20 +1292,6 @@ MonoBehaviour:
   lootCurrency: 0
   heldDefenses: []
   InstructionsPanel: {fileID: 108717189}
---- !u!114 &898602583
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 898602581}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bb35011e119fc64388d183baa58cf3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  starthp: 100
-  hp: 0
 --- !u!114 &898602584 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: -2881446471126299931, guid: 5c12858493102eb4ab6631b358179706, type: 3}
@@ -1317,6 +1303,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bf40cac35c048647a22c1a1a30707c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &898602585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 898602581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52277b2b1f9cdb444813335d9a52feb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player_starthp: 100
+  player_hp: 0
 --- !u!1 &901704035
 GameObject:
   m_ObjectHideFlags: 0
