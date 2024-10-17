@@ -153,10 +153,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cycleLength: 15
+  cycleWarningTime: 5
   displayWindow: {fileID: 1056785606}
   displayText: {fileID: 1749715468}
   daySkybox: {fileID: 2100000, guid: 1659a51f2a7a743f685d60f1e8e11019, type: 2}
   nightSkybox: {fileID: 2100000, guid: afed8d8249aff4614b6fd742d3f9c14d, type: 2}
+  dawnDuskSkybox: {fileID: 2100000, guid: ad306862a65684d658e23244d0f78dfc, type: 2}
   lightSource: {fileID: 450305973}
   EnterDay:
     m_PersistentCalls:

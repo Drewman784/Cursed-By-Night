@@ -9,6 +9,9 @@ public class DayNightCycleController : MonoBehaviour
 {
     private int sec; //internal count of seconds from start of cycle
     [SerializeField] int cycleLength; //set the length of the day/night cycles
+    [SerializeField] int cycleWarningTime; //dawn/dusk time before cycle change
+
+    private bool dawnDusk;
     private bool day; 
 
     private float ct;
@@ -21,6 +24,8 @@ public class DayNightCycleController : MonoBehaviour
 
     [SerializeField] Material daySkybox; //skybox for daytime
     [SerializeField] Material nightSkybox; //skybox for nighttime
+
+    [SerializeField] Material dawnDuskSkybox; //skybox for dawn/dusk periods
     [SerializeField] Light lightSource; //the directional light for the scene
 
     public UnityEvent EnterDay; //this triggers when the day cycle begins and calls all the necessary methods
@@ -35,6 +40,7 @@ public class DayNightCycleController : MonoBehaviour
      displayUp =false;
      day = true;
      EnterDay.Invoke();
+     dawnDusk = false;
     }
 
     // Update is called once per frame
@@ -58,6 +64,8 @@ public class DayNightCycleController : MonoBehaviour
             }
             ct = 0;
             sec = 0;
+        } else if(sec>=(cycleLength-cycleWarningTime) && !dawnDusk){
+            ChangeMidSkybox();
         }
      }   
     }
@@ -79,10 +87,18 @@ public class DayNightCycleController : MonoBehaviour
     public void ChangeDaySkybox(){ //changes the skybox and light intensity for day cycle
         UnityEngine.RenderSettings.skybox = daySkybox;
         lightSource.intensity = 1;
+        dawnDusk = false;
     }
 
     public void ChangeNightSkybox(){ //changes the skybox and light intensity for night cycle
         UnityEngine.RenderSettings.skybox = nightSkybox;
         lightSource.intensity = .25f;
+        dawnDusk = false;
+    }
+
+    public void ChangeMidSkybox(){ // changes the skybox and light intensity for the dawn/dusk periods 
+        UnityEngine.RenderSettings.skybox = dawnDuskSkybox;
+        lightSource.intensity = .65f;
+        dawnDusk = true;
     }
 }
