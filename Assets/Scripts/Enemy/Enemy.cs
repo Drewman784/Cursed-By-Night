@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.AI;
+using UnityEditor.UI;
 
 public class Enemy : MonoBehaviour
 {
@@ -68,6 +69,8 @@ public class Enemy : MonoBehaviour
 
     private void Die() //enemy dies
     {
+        GameObject c = GameObject.Find("DayNightCycleController");  //THIS IS CURRENTLY WHERE ENEMYSPAWNER IS. JUST NEED THE GAMEOBJECT
+        c.GetComponent<EnemySpawner>().RemoveEnemyFromActiveList(this.gameObject);
         Destroy(gameObject);
     }
 }
