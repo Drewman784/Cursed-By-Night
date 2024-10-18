@@ -46,6 +46,10 @@ public class PlayerInventory : MonoBehaviour
         salvage = newCount;
     }
 
+    public void AddSalvageCount(int add){
+        salvage += add;
+    }
+
     public int GetLootCurrency(){ //returns loot currency
         return lootCurrency;
     }
