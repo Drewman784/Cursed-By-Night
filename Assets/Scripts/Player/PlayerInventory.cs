@@ -46,7 +46,7 @@ public class PlayerInventory : MonoBehaviour
         salvage = newCount;
     }
 
-    public void AddSalvageCount(int add){
+    public void AddSalvageCount(int add){ //adds parameter amount to salvage count
         salvage += add;
     }
 
@@ -56,6 +56,10 @@ public class PlayerInventory : MonoBehaviour
 
     public void SetLootCurrency(int value){ //modifies loot currency
         lootCurrency = value;
+    }
+
+    public void AddLootCurrency(int add){ //adds parameter amount to loot currency
+        lootCurrency+=add;
     }
     /**
     public GameObject GetHolding(){

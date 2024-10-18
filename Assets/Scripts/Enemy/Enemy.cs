@@ -14,6 +14,10 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] public float attackRadius = 5f;
 
+    [SerializeField] private int eyeballDropCount;
+
+    [SerializeField] private GameObject eyeballPrefab;
+
     NavMeshAgent agent;
     public Transform Target;
     [SerializeField] public float MoveSpeed = 10;
@@ -71,6 +75,10 @@ public class Enemy : MonoBehaviour
     {
         GameObject c = GameObject.Find("DayNightCycleController");  //THIS IS CURRENTLY WHERE ENEMYSPAWNER IS. JUST NEED THE GAMEOBJECT
         c.GetComponent<EnemySpawner>().RemoveEnemyFromActiveList(this.gameObject);
+        for(int a =0; a< eyeballDropCount;a++){
+            GameObject b = Instantiate(eyeballPrefab);
+            b.transform.position = transform.position;
+        }
         Destroy(gameObject);
     }
 }

@@ -125,6 +125,8 @@ MonoBehaviour:
   damage: 10
   lookRadius: 17.4
   attackRadius: 5
+  eyeballDropCount: 3
+  eyeballPrefab: {fileID: 1865504848378618904, guid: 9abbc9c8deaf84efa9612178184e7c9c, type: 3}
   Target: {fileID: 0}
   MoveSpeed: 3.94
 --- !u!195 &8949041324334101793
