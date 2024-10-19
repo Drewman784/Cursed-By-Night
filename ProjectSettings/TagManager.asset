@@ -9,6 +9,7 @@ TagManager:
   - Environment
   - Attack
   - Pickup
+  - Zombie Enemy
   layers:
   - Default
   - TransparentFX
