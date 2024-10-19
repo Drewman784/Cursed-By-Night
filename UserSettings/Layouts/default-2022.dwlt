@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Inspector
+  m_Title: Scene
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 99
+  controlID: 55
   draggingID: 0
 --- !u!114 &6
 MonoBehaviour:
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 54
+  controlID: 56
   draggingID: 0
 --- !u!114 &7
 MonoBehaviour:
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 55
+  controlID: 57
   draggingID: 0
 --- !u!114 &8
 MonoBehaviour:
@@ -218,8 +218,8 @@ MonoBehaviour:
     y: 0
     width: 1152
     height: 606
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -458,7 +458,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 0
+    m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -526,9 +526,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: cc600000
-      m_LastClickedID: 24780
-      m_ExpandedIDs: c6eeffffccf0ffff76f9ffffde5d0000cc600000
+      m_SelectedIDs: 5c5d0000
+      m_LastClickedID: 23900
+      m_ExpandedIDs: ecf8ffff30fbffff345d0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1133,9 +1133,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 960.00006, y: 540, z: -3.3500001}
+    m_Target: {x: -0.0000038146973, y: 1, z: 90}
     speed: 2
-    m_Value: {x: 960.00006, y: 540, z: -3.3500001}
+    m_Value: {x: -0.0000038146973, y: 1, z: 90}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1181,13 +1181,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.021307701, y: -0.00090185745, z: 0.00001822187, w: -0.9997617}
+    m_Target: {x: 0.001190377, y: -0.008401859, z: -0.000010792154, w: -0.99995124}
     speed: 2
-    m_Value: {x: -0.021307932, y: -0.0009018672, z: 0.000018222068, w: -0.99977255}
+    m_Value: {x: 0.0011903922, y: -0.008401966, z: -0.0000107922915, w: -0.999964}
   m_Size:
-    m_Target: 1414.231
+    m_Target: 68.97538
     speed: 2
-    m_Value: 1414.231
+    m_Value: 68.97538
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1257,7 +1257,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Pickups
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1265,16 +1265,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts/Pickups
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Andrew\Desktop\Unity\House Design Apoc\Cursed-By-Night
   m_LockTracker:
     m_IsLocked: 1
   m_FolderTreeState:
     scrollPos: {x: 0, y: 4}
-    m_SelectedIDs: ea1e0000
-    m_LastClickedID: 7914
-    m_ExpandedIDs: 000000008c5d0000a25d000000ca9a3b
+    m_SelectedIDs: ec5c0000
+    m_LastClickedID: 23788
+    m_ExpandedIDs: 00000000d45c0000e65c0000ee5c000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1302,7 +1302,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000008c5d0000
+    m_ExpandedIDs: 00000000d45c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
