@@ -17,6 +17,7 @@ public class DefenseBase : MonoBehaviour
   
     private Material damagedMat;
     private Material repairedMat;
+    private Material inactiveMat;
 
     private bool functioning;
 
@@ -37,6 +38,7 @@ public class DefenseBase : MonoBehaviour
         resourceRepairNum = defDetails.GetResourceRepairNum();
         damagedMat = defDetails.GetDamagedMat();
         repairedMat = defDetails.GetRepairedMaterial();
+        inactiveMat = defDetails.GetInactiveMaterial();
         currentHealth = defDetails.GetCurrentHealth();
 
         popupCanvas = transform.GetChild(1).gameObject;
@@ -63,6 +65,8 @@ public class DefenseBase : MonoBehaviour
 
         } else if(other.CompareTag("Enemy")){ //if enemy, trap springs
             TriggerEffect(other.gameObject);
+        } else if (other.CompareTag("Attack")){ //if enemy attack, take damage
+            RecieveDamage(1); //BASE TAKES DAMAGE - CURRENTLY SET TO 1
         }
     }
 
@@ -96,11 +100,17 @@ public class DefenseBase : MonoBehaviour
 
     public void RecieveDamage(int damage){ //defense takes damage (<-currently unused)
         currentHealth = currentHealth - damage;
+        Debug.Log("CURRENT HEALTH: " + currentHealth);
+
+        visualElement.GetComponent<MeshRenderer>().material = damagedMat;
+
         if(currentHealth <0){
             currentHealth = 0;
             functioning = false;
             //maybe switch to third material -> broken?
             visualElement.GetComponent<BoxCollider>().enabled = false; //<- disables the collider when health is zero
+
+            visualElement.GetComponent<MeshRenderer>().material = inactiveMat;
         }
 
         

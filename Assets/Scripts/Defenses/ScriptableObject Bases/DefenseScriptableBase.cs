@@ -16,6 +16,8 @@ public class DefenseScriptableBase : ScriptableObject
     [SerializeField] Material damagedMat;
     [SerializeField] Material repairedMat;
 
+    [SerializeField] Material inactiveMat;
+
     public GameObject GetVisualPrefab(){
         return visualPrefab;
     }
@@ -45,6 +47,10 @@ public class DefenseScriptableBase : ScriptableObject
 
     public Material GetRepairedMaterial(){
         return repairedMat;
+    }
+
+    public Material GetInactiveMaterial(){
+        return inactiveMat;
     }
 
 }
