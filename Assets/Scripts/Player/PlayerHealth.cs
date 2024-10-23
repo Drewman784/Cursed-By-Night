@@ -26,10 +26,10 @@ public class PlayerHealth : MonoBehaviour
         {
             player_hp -= Zombie_Damage;
         }
-        if (other.gameObject.CompareTag("Enemy 2"))
+        /**if (other.gameObject.CompareTag("Enemy 2"))
         {
             player_hp -= Enemy_2_Damage;
-        }
+        }*/
     }
 
     public void Player_TakeDamage()

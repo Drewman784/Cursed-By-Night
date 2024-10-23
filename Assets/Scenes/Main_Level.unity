@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 1600982}
   - component: {fileID: 1600981}
   - component: {fileID: 1600983}
+  - component: {fileID: 1600984}
   m_Layer: 0
   m_Name: DayNightCycleController
   m_TagString: Untagged
@@ -223,6 +224,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1600984}
+        m_TargetAssemblyTypeName: SalvageSpawner, Assembly-CSharp
+        m_MethodName: EnterDayCycle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   EnterNight:
     m_PersistentCalls:
       m_Calls:
@@ -286,6 +299,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1600984}
+        m_TargetAssemblyTypeName: SalvageSpawner, Assembly-CSharp
+        m_MethodName: EnterNightCycle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &1600982
 Transform:
   m_ObjectHideFlags: 0
@@ -315,6 +340,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeEnemies: []
   enemyPrefab: {fileID: 79721739967742468, guid: ce12a42954b3943489bd3df545c3a609, type: 3}
+--- !u!114 &1600984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d404bfaa114314df5806ddbff5787b20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeSalvage: []
+  salvagePrefab: {fileID: 8158025206854627934, guid: 86c15f7ff5ec04ce78f11bcec6a06185, type: 3}
+  centerOfSpawnArea: {x: -28, y: 1, z: -63}
 --- !u!1 &59176588
 GameObject:
   m_ObjectHideFlags: 0

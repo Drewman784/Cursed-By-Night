@@ -23,6 +23,10 @@ public class SalvageScript : MonoBehaviour
     private void OnTriggerEnter(Collider other) { //when player walks into object, up salvage count
         if(other.gameObject.CompareTag("Player")){
             other.gameObject.GetComponent<PlayerInventory>().AddSalvageCount(salvageToAdd);
+
+            SalvageSpawner f = GameObject.Find("DayNightCycleController").GetComponent<SalvageSpawner>();
+            f.activeSalvage.Remove(gameObject);
+            
             Destroy(this.gameObject);
         }
     }
