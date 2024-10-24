@@ -83,8 +83,20 @@ public class Enemy : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision other) {
+        Debug.Log("enemy collision");
         if(other.gameObject.CompareTag("DefenseInteractable")){
             GetComponent<Animator>().SetTrigger("Attack");
         }
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        Debug.Log("enemy trigger");
+        if(other.gameObject.CompareTag("DefenseInteractable")){
+            GetComponent<Animator>().SetTrigger("Attack");
+        }
+    }
+
+    public void EnemyAttacks(){
+        GetComponent<Animator>().SetTrigger("Attack");
     }
 }
