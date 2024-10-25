@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
-using UnityEditor.UI;
+//using UnityEditor.UI;
 using UnityEngine;
 
 //this script goes on the salvage gameobjects, isTrigger should be checked
