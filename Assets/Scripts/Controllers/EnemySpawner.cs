@@ -44,26 +44,26 @@ public class EnemySpawner : MonoBehaviour
             switch(num)
             {
                 case 1: //spawnpoint on day 1
-                    g.transform.position = new Vector3(4,1.5f,-20);
+                    g.transform.position = new Vector3(-8,-.5f,-25);
                     Debug.Log("placed?");
                     break;
                 case 2: //spawn point on day 2
-                    g.transform.position = new Vector3(-6,1.5f,-20);
+                    g.transform.position = new Vector3(-26.5f,-.5f,-25);
                     break;
                 case 3: //etc
-                    g.transform.position = new Vector3(-17,1.5f,-20f);
+                    g.transform.position = new Vector3(-43,-.5f,-.1f);
                     break;
                 case 4: 
-                    g.transform.position = new Vector3(-21,1.5f,-33f);
+                    g.transform.position = new Vector3(18,-.5f,-.1f);
                     break;
                 case 5: 
-                    g.transform.position = new Vector3(8.5f,1.5f,-33f);
+                    g.transform.position = new Vector3(18,-.5f,19f);
                     break;
                 case 6: 
-                    g.transform.position = new Vector3(-3.5f,1.5f,-58f);
+                    g.transform.position = new Vector3(-8.3f,-.5f,19f);
                     break;
                 case 7: 
-                    g.transform.position = new Vector3(-14,1.5f,-58);
+                    g.transform.position = new Vector3(-30,-.5f,19);
                     break;
             }
             num--;

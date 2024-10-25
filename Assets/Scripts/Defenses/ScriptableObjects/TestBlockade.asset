@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d793724ea1904d9288fa90ac778d9ef, type: 3}
   m_Name: TestBlockade
   m_EditorClassIdentifier: 
-  currentHealth: 5
+  currentHealth: 1
   visualPrefab: {fileID: 0}
   nameOfDefense: TestBlockade
   healthMax: 5

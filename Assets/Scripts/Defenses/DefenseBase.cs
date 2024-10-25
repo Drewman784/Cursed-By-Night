@@ -59,16 +59,13 @@ public class DefenseBase : MonoBehaviour
         }
     }
     private void OnTriggerEnter(Collider other) { //when someone enters the range of the defense
-        Debug.Log("defbase atk?");
-        Debug.Log("tag: "+ other.gameObject.tag);
+
         if(other.CompareTag("Player")){ //if player, give script info to move/use obj
             other.GetComponent<Player>().EnterDefenseRange(this);
 
         } else if(other.CompareTag("Enemy")){ //if enemy, trap springs
             TriggerEffect(other.gameObject);
-            other.gameObject.GetComponent<Enemy>().EnemyAttacks();
         } else if (other.CompareTag("Attack")){ //if enemy attack, take damage
-            Debug.Log("attack?");
             RecieveDamage(1); //BASE TAKES DAMAGE - CURRENTLY SET TO 1
         }
     }
