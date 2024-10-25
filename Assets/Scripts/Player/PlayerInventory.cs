@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -9,6 +10,9 @@ public class PlayerInventory : MonoBehaviour
 {
     [SerializeField] private int salvage; //generic repair material, discuss in class
     [SerializeField] private int lootCurrency; //generic loot currency
+
+    static public int Realsalvage;
+    static public int ReallootCurrency;
 
     //private GameObject holding;
     [SerializeField] private List<GameObject> heldDefenses; //list of defenses held by player
@@ -20,11 +24,25 @@ public class PlayerInventory : MonoBehaviour
     private bool popup; //is instructionspanel active
     private float ct;
 
+    public static TextMeshProUGUI LootText;
+    public static TextMeshProUGUI SalvageText;
+
     void Start()
     {
         heldDefenses = new List<GameObject>();
         //holding = null;
         DismissInstructions();
+
+        //Helps display currency counts
+        Realsalvage = salvage;
+        ReallootCurrency = lootCurrency;
+
+        //Displays currency counts
+        LootText = GameObject.FindGameObjectWithTag("Eyes_Text").GetComponent<TextMeshProUGUI>();
+        LootText.SetText($"Eyes Collected: {ReallootCurrency} ");
+
+        SalvageText = GameObject.FindGameObjectWithTag("Salvage_Text").GetComponent<TextMeshProUGUI>();
+        SalvageText.SetText($"Salvage Collected: {Realsalvage} ");
     }
 
     // Update is called once per frame
@@ -36,6 +54,11 @@ public class PlayerInventory : MonoBehaviour
                 DismissInstructions();
             }
         }
+
+        //Update Currencies
+        LootText.SetText($"Eyes Collected: {ReallootCurrency} ");
+        SalvageText.SetText($"Salvage Collected: {Realsalvage} ");
+
     }
 
     public int GetSalvageCount(){ //returns salvage count
