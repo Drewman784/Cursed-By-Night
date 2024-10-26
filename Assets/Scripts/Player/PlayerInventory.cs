@@ -11,8 +11,8 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] private int salvage; //generic repair material, discuss in class
     [SerializeField] private int lootCurrency; //generic loot currency
 
-    static public int Realsalvage;
-    static public int ReallootCurrency;
+    int Realsalvage;
+    int ReallootCurrency;
 
     //private GameObject holding;
     [SerializeField] private List<GameObject> heldDefenses; //list of defenses held by player
@@ -71,6 +71,7 @@ public class PlayerInventory : MonoBehaviour
 
     public void AddSalvageCount(int add){ //adds parameter amount to salvage count
         salvage += add;
+        Realsalvage += add;
     }
 
     public int GetLootCurrency(){ //returns loot currency
@@ -83,6 +84,7 @@ public class PlayerInventory : MonoBehaviour
 
     public void AddLootCurrency(int add){ //adds parameter amount to loot currency
         lootCurrency+=add;
+        ReallootCurrency += add;
     }
     /**
     public GameObject GetHolding(){
