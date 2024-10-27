@@ -10,8 +10,6 @@ TagManager:
   - Attack
   - Pickup
   - Zombie Enemy
-  - Eyes_Text
-  - Salvage_Text
   layers:
   - Default
   - TransparentFX

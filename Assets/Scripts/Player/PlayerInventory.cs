@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using Microsoft.Unity.VisualStudio.Editor;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class PlayerInventory : MonoBehaviour
 {
@@ -24,8 +28,10 @@ public class PlayerInventory : MonoBehaviour
     private bool popup; //is instructionspanel active
     private float ct;
 
-    public static TextMeshProUGUI LootText;
-    public static TextMeshProUGUI SalvageText;
+    private static TextMeshProUGUI LootText;
+    private static TextMeshProUGUI SalvageText;
+
+    [SerializeField] private List<GameObject> inventoryPanels;
 
     void Start()
     {
@@ -38,11 +44,22 @@ public class PlayerInventory : MonoBehaviour
         ReallootCurrency = lootCurrency;
 
         //Displays currency counts
-        LootText = GameObject.FindGameObjectWithTag("Eyes_Text").GetComponent<TextMeshProUGUI>();
+        LootText = GameObject.Find("Eyes_Text").GetComponent<TextMeshProUGUI>();
         LootText.SetText($"Eyes Collected: {ReallootCurrency} ");
 
-        SalvageText = GameObject.FindGameObjectWithTag("Salvage_Text").GetComponent<TextMeshProUGUI>();
+        SalvageText = GameObject.Find("Salvage_Text").GetComponent<TextMeshProUGUI>();
         SalvageText.SetText($"Salvage Collected: {Realsalvage} ");
+
+        /**
+        GameObject invenHolder = GameObject.Find("InventoryPanel").gameObject; //load inventory panels
+        Debug.Log("found?: " + GameObject.Find("InventoryPanel").gameObject); 
+        inventoryPanels = new List<GameObject>();
+        for (int i = 0; i<6; i++){
+            Debug.Log("found panel: "+ i);
+            inventoryPanels[i] = invenHolder.transform.GetChild(i).gameObject;
+        }**/
+
+        UpdateUI();
     }
 
     // Update is called once per frame
@@ -55,9 +72,19 @@ public class PlayerInventory : MonoBehaviour
             }
         }
 
-        //Update Currencies
-        LootText.SetText($"Eyes Collected: {ReallootCurrency} ");
-        SalvageText.SetText($"Salvage Collected: {Realsalvage} ");
+        if(Input.GetKeyDown(KeyCode.Alpha1)){ //when player presses number key, change selected inventory item
+            ChangeIndex(0);
+        } else if(Input.GetKeyDown(KeyCode.Alpha2)){
+            ChangeIndex(1);
+        } else if(Input.GetKeyDown(KeyCode.Alpha3)){
+            ChangeIndex(2);
+        } else if(Input.GetKeyDown(KeyCode.Alpha4)){
+            ChangeIndex(3);
+        } else if(Input.GetKeyDown(KeyCode.Alpha5)){
+            ChangeIndex(4);
+        } else if(Input.GetKeyDown(KeyCode.Alpha6)){
+            ChangeIndex(5);
+        } 
 
     }
 
@@ -80,26 +107,14 @@ public class PlayerInventory : MonoBehaviour
 
     public void SetLootCurrency(int value){ //modifies loot currency
         lootCurrency = value;
+        UpdateUI();
     }
 
     public void AddLootCurrency(int add){ //adds parameter amount to loot currency
         lootCurrency+=add;
         ReallootCurrency += add;
+        UpdateUI();
     }
-    /**
-    public GameObject GetHolding(){
-        GameObject hold = holding;
-        holding = null;
-        return hold;
-    }
-
-    public bool IsHolding(){
-        return holding != null;
-    }
-
-    public void SetHolding(GameObject toBeHeld){
-        holding = toBeHeld;
-    }*/
 
     public bool InventoryIsFull(){ //returns true if inventory is full
         if(heldDefenses.Count() == 6){ //MAX COUNT SET TO 6 <- CAN MODIFY
@@ -117,6 +132,7 @@ public class PlayerInventory : MonoBehaviour
         }
         heldIndex = heldDefenses.Count()-1;
         BringUpInstructions();
+        UpdateUI();
     }
 
     public void RemoveFromInventory(){ //removes item from inventory
@@ -127,10 +143,17 @@ public class PlayerInventory : MonoBehaviour
         if(InventoryIsEmpty()){
             DismissInstructions();
         }
+        UpdateUI();
     }
 
-    public void ChangeIndex(int index){ //NOT IMPLEMENTED changes what item in inventory is selected
-        heldIndex = index;
+    public void ChangeIndex(int index){ //changes what item in inventory is selected
+
+        if(heldDefenses.Count-1>=index){ //check that inventory has given index
+             heldIndex = index;
+        } else{
+            heldIndex = heldDefenses.Count()-1; //otherwise select last inventory item
+        }
+        UpdateUI();
     }
 
     public bool InventoryIsEmpty(){//returns true if inventory is empty
@@ -154,5 +177,35 @@ public class PlayerInventory : MonoBehaviour
     private void DismissInstructions(){ //deactivates ui instructions panel
         InstructionsPanel.SetActive(false);
         popup = false;
+    }
+
+    public void UpdateUI(){
+        //Update Currencies
+        LootText.SetText($"Eyes Collected: {ReallootCurrency} ");
+        SalvageText.SetText($"Salvage Collected: {Realsalvage} ");
+
+        Debug.Log("inv: "+ heldDefenses.Count());
+
+        if(!InventoryIsEmpty()){
+            for(int a = 0; a < heldDefenses.Count(); a++){ //show used inventory panels
+                inventoryPanels[a].SetActive(true);
+                inventoryPanels[a].GetComponent<UnityEngine.UI.Image>().color = Color.grey;
+
+                //show details
+                TextMeshProUGUI texmp = inventoryPanels[a].transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+                texmp.text = heldDefenses[a].GetComponent<DefenseBase>().GetDefenseName();
+            }
+
+            for(int b = heldDefenses.Count(); b<6;b++){ //hide unused inventory panels
+                inventoryPanels[b].SetActive(false);
+            }
+
+            //show selected inventory item
+            inventoryPanels[heldIndex].GetComponent<UnityEngine.UI.Image>().color = Color.white;
+        } else{
+            foreach(GameObject e in inventoryPanels){
+                e.SetActive(false);
+            }
+        }
     }
 }

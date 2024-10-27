@@ -134,4 +134,8 @@ public class DefenseBase : MonoBehaviour
         popupCanvas.SetActive(false);
         popup = false;
     }
+
+    public string GetDefenseName(){
+        return defDetails.GetNameOfDefense();
+    }
 }
