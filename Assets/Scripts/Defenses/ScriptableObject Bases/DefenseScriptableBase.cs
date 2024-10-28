@@ -18,6 +18,12 @@ public class DefenseScriptableBase : ScriptableObject
 
     [SerializeField] Material inactiveMat;
 
+    [SerializeField] bool moveable; //is this a stationary defense like a door or window (should not be moved around house)
+
+    [SerializeField] int trapDamageDealt; //how much does this damage the enemy?
+
+    [SerializeField] int trapActiveLength; //length of time trap is active
+
     public GameObject GetVisualPrefab(){
         return visualPrefab;
     }
@@ -51,6 +57,18 @@ public class DefenseScriptableBase : ScriptableObject
 
     public Material GetInactiveMaterial(){
         return inactiveMat;
+    }
+
+    public bool IsMoveable(){
+        return moveable;
+    }
+
+    public int GetTrapDamage(){
+        return trapDamageDealt;
+    }
+
+    public int GetTrapLength(){
+        return trapActiveLength;
     }
 
 }

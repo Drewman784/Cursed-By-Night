@@ -8,6 +8,8 @@ public class ShopUIController : MonoBehaviour
     public bool inRange; // is the player in range of the shopkeeper
     private bool shopScreenOpen; // is the shop window open
 
+    [SerializeField] private GameObject GeneralUI;
+
     [SerializeField] GameObject popupCanvas;
     [SerializeField] private GameObject shopScreen;
     [SerializeField] private TextMeshProUGUI LootCurrencyText;
@@ -62,17 +64,24 @@ public class ShopUIController : MonoBehaviour
         shopScreenOpen = true;
         shopScreen.SetActive(true);
         UpdateShopScreen();
+
+        GeneralUI.SetActive(false);
+        GameObject.Find("Player").gameObject.GetComponent<Player>().SetMenu(true);
     }
 
     public void CloseShopScreen(){
         shopScreenOpen = false;
         shopScreen.SetActive(false);
+        
+        GeneralUI.SetActive(true);
+        GameObject.Find("Player").gameObject.GetComponent<Player>().SetMenu(false);
     }
 
     public void BuyItem(int index){ //purchase an item from the shop
         int price;
         switch(index){
-            case 0: price = 1; break;
+            case 0: price = 2; break;
+            case 1: price = 5; break;
             default: price = 1; break;
         }
         PlayerInventory inv = GameObject.Find("Player").GetComponent<PlayerInventory>();

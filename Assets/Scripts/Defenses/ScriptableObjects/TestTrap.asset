@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d793724ea1904d9288fa90ac778d9ef, type: 3}
-  m_Name: TestBlockade
+  m_Name: TestTrap
   m_EditorClassIdentifier: 
   currentHealth: 5
   visualPrefab: {fileID: 0}
-  nameOfDefense: TestBlockade
+  nameOfDefense: TestTrap
   healthMax: 5
   resourceRepairType: 
   resourceRepairNum: 2
   damagedMat: {fileID: 2100000, guid: 0836adb8b41044ddc97570e2281f39fb, type: 2}
-  repairedMat: {fileID: 2100000, guid: 54f042510f47a4e69b735f06398ef93e, type: 2}
+  repairedMat: {fileID: 2100000, guid: da43f96083d044661a8e24468e5e24cb, type: 2}
   inactiveMat: {fileID: 2100000, guid: 87dc018f3b6594a1eb19c5b3f3e2c137, type: 2}
   moveable: 1
-  trapDamageDealt: 0
-  trapActiveLength: 0
+  trapDamageDealt: 20
+  trapActiveLength: 2

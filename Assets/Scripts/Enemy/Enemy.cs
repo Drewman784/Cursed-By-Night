@@ -87,4 +87,10 @@ public class Enemy : MonoBehaviour
             GetComponent<Animator>().SetTrigger("Attack");
         }
     }
+
+    private void OnTriggerEnter(Collider other) {
+        if(other.gameObject.CompareTag("Trap Attack")){
+            TakeDamage(other.gameObject.GetComponentInParent<DefenseBase>().DealDamage());
+        }
+    }
 }

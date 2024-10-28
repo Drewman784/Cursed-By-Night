@@ -28,6 +28,8 @@ public class Player : MonoBehaviour
 
     private bool objPreviewed;
 
+    private bool inMenu;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -36,6 +38,8 @@ public class Player : MonoBehaviour
         //REPAIR VARS
         defenseInteractable = false;
         defenseInteractableObject = null;
+
+        SetMenu(false);
     }
 
     void FixedUpdate()
@@ -59,7 +63,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-
+        if(!inMenu){
         // Sprint Mechanics
         if (Input.GetKey(KeyCode.LeftShift)) 
         {
@@ -83,7 +87,7 @@ public class Player : MonoBehaviour
 
             } else if(Input.GetKeyDown(KeyCode.E) && dayCycle){ //pick up nearby defense
 
-                if(!GetComponent<PlayerInventory>().InventoryIsFull()){ //check that there's room in the inventory
+                if(!GetComponent<PlayerInventory>().InventoryIsFull() && defenseInteractableObject.IsMoveable()){ //check that there's room in the inventory + object not stationary
                      //defenseInteractableObject.gameObject.transform.parent = invenPoint.transform; //parent object to player 
 
                      GetComponent<PlayerInventory>().AddToInventory(defenseInteractableObject.gameObject); //add to inventory
@@ -114,17 +118,14 @@ public class Player : MonoBehaviour
                     objPreviewed = false;
                 }
             }
+        } else if(Input.GetKey(KeyCode.C)){ //place defense
+            if(!GetComponent<PlayerInventory>().InventoryIsEmpty() && dayCycle){
+                Debug.Log("placing now");
+                PlaceObject();
+            }
+        }
         }
 
-
-
-        else if(Input.GetKey(KeyCode.C)){ //place defense
-        if(!GetComponent<PlayerInventory>().InventoryIsEmpty() && dayCycle){
-            Debug.Log("placing now");
-           PlaceObject();
-        }
-
-        }
     }
 
     //REPAIR CODE
@@ -134,7 +135,11 @@ public class Player : MonoBehaviour
         defenseInteractable = true;
         Debug.Log("entered range");
         if(dayCycle){
-            defObj.MovePopUp();
+            if(defObj.IsMoveable()){ //check if immobile object such as window or door
+                defObj.MovePopUp();
+            }else{ //if it's not moveable, ensure player can keep going through it
+                defObj.GoIntangible();
+            }
         } else{
             defObj.RepairPopUp();
         }
@@ -198,5 +203,23 @@ public class Player : MonoBehaviour
     public void SetDayCycle(bool day){ //updates the cycle
         dayCycle = day;
         Debug.Log("Player day =" + day+"!");
+
+        if(!dayCycle &&defenseInteractable){ //if in range of a defense that's been set as not solid during day
+            if(defenseInteractableObject.GetComponent<DefenseBase>().IsMoveable() == false){
+                defenseInteractableObject.GetComponent<DefenseBase>().GoTangible(); // make it solid again
+            }
+        }
+    }
+
+    public void SetMenu(bool menu){ //if the player is in menu, disable movement + enable mouse
+        inMenu = menu;
+
+        if(inMenu){
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        } else{
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
     }
 }

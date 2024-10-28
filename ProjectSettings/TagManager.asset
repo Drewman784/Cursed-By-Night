@@ -10,6 +10,7 @@ TagManager:
   - Attack
   - Pickup
   - Zombie Enemy
+  - Trap Attack
   layers:
   - Default
   - TransparentFX

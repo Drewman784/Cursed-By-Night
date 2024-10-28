@@ -10,6 +10,8 @@ public class DefenseBase : MonoBehaviour
     private int currentHealth;
     [SerializeField] DefenseScriptableBase defDetails;
     private GameObject visualPrefab;
+
+    private GameObject defHitbox;
     private string nameOfDefense;
     private int healthMax;
     private string resourceRepairType; //currently generic is in use, this is a placeholder
@@ -24,12 +26,19 @@ public class DefenseBase : MonoBehaviour
     private GameObject popupCanvas;
 
     private bool popup;
+
+    private bool moveable;
+
+    private bool defUp; //is the defense hitbox up
+
+    private float defct; //how long has the defense been up
     
 
     // Start is called before the first frame update
     void Start()
     {
         visualElement = transform.GetChild(0).gameObject;
+        defHitbox = transform.GetChild(2).gameObject;
 
         //import from scriptable object
         visualPrefab = defDetails.GetVisualPrefab();
@@ -40,11 +49,17 @@ public class DefenseBase : MonoBehaviour
         repairedMat = defDetails.GetRepairedMaterial();
         inactiveMat = defDetails.GetInactiveMaterial();
         currentHealth = defDetails.GetCurrentHealth();
+        moveable = defDetails.IsMoveable();
 
         popupCanvas = transform.GetChild(1).gameObject;
 
         DismissPopUp();
         popup = false;
+        defct = 0;
+        defUp = false;
+
+        functioning = true;
+        defHitbox.SetActive(false);
 
     }
 
@@ -57,6 +72,15 @@ public class DefenseBase : MonoBehaviour
             //popupCanvas.transform.LookAt(new Vector3(Camera.main.transform.position.x,0, Camera.main.transform.position.z));
             popupCanvas.transform.Rotate(0,180,0);
         }
+
+        if(defUp){ //if the defense hitbox is up
+            defct+=Time.deltaTime;
+            if(defct>=defDetails.GetTrapLength()){ //if it's time has run out
+                defHitbox.SetActive(false); //put the hitbox away
+                defct=0;
+                defUp=false;
+            }
+        }
     }
     private void OnTriggerEnter(Collider other) { //when someone enters the range of the defense
 
@@ -65,6 +89,7 @@ public class DefenseBase : MonoBehaviour
 
         } else if(other.CompareTag("Enemy")){ //if enemy, trap springs
             TriggerEffect(other.gameObject);
+            Debug.Log("found enemy def");
         } else if (other.CompareTag("Attack")){ //if enemy attack, take damage
             RecieveDamage(1); //BASE TAKES DAMAGE - CURRENTLY SET TO 1
         }
@@ -75,6 +100,7 @@ public class DefenseBase : MonoBehaviour
             other.GetComponent<Player>().DisengageDefenseInteractableObject(this);
             Debug.Log("exit range");
             DismissPopUp();
+            GoTangible();
         }
     }
 
@@ -94,8 +120,14 @@ public class DefenseBase : MonoBehaviour
 
     private void TriggerEffect(GameObject enemy){ // trap effect
         if(functioning){
-        //FILL IN WITH WHATEVER
+            defHitbox.SetActive(true);
+            defUp = true;
+            defct = 0;
         }
+    }
+
+    public int DealDamage(){
+        return defDetails.GetTrapDamage();
     }
 
     public void RecieveDamage(int damage){ //defense takes damage (<-currently unused)
@@ -119,7 +151,7 @@ public class DefenseBase : MonoBehaviour
     public void RepairPopUp(){ //brings up a popup with information about repairs
         if(currentHealth<healthMax){
             popupCanvas.SetActive(true);
-            popupCanvas.GetComponentInChildren<TextMeshProUGUI>().text = "Press F to Repair";
+            popupCanvas.GetComponentInChildren<TextMeshProUGUI>().text = "[F] Repair Cost: " + resourceRepairNum;
             popup = true;
         }
     }
@@ -135,7 +167,19 @@ public class DefenseBase : MonoBehaviour
         popup = false;
     }
 
-    public string GetDefenseName(){
+    public string GetDefenseName(){ //middleman method for scriptable object
         return defDetails.GetNameOfDefense();
+    }
+
+    public bool IsMoveable(){ //middleman method for scriptable object
+        return moveable;
+    }
+
+    public void GoIntangible(){ //let player walk through immovable defenses (ex: door)
+        visualElement.GetComponent<Collider>().enabled = false;
+    }
+
+    public void GoTangible(){ //return defense to being solid
+        visualElement.GetComponent<Collider>().enabled = true;
     }
 }

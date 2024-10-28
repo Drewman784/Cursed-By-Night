@@ -94,11 +94,13 @@ public class PlayerInventory : MonoBehaviour
 
     public void SetSalvageCount(int newCount){ //modifies salvage count
         salvage = newCount;
+        UpdateUI();
     }
 
     public void AddSalvageCount(int add){ //adds parameter amount to salvage count
         salvage += add;
         Realsalvage += add;
+        UpdateUI();
     }
 
     public int GetLootCurrency(){ //returns loot currency
@@ -181,6 +183,8 @@ public class PlayerInventory : MonoBehaviour
 
     public void UpdateUI(){
         //Update Currencies
+        ReallootCurrency = lootCurrency;
+        Realsalvage = salvage;
         LootText.SetText($"Eyes Collected: {ReallootCurrency} ");
         SalvageText.SetText($"Salvage Collected: {Realsalvage} ");
 
