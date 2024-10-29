@@ -26,6 +26,9 @@ public class GunSystem : MonoBehaviour
     //Graphics
     public TextMeshProUGUI text;
 
+    //Audio
+    public AudioSource outOfAmmoSound; // Assign an AudioSource in the Inspector
+
     private void Awake()
     {
         bulletsLeft = magazineSize;
@@ -47,11 +50,22 @@ public class GunSystem : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading) Reload();
 
-        //Shoot
-        if (readyToShoot && shooting && !reloading && bulletsLeft > 0)
+        // Check if shooting is attempted when there are no bullets left
+        if (readyToShoot && shooting && !reloading)
         {
-            bulletsShot = bulletsPerTap;
-            Shoot();
+            if (bulletsLeft > 0)
+            {
+                bulletsShot = bulletsPerTap;
+                Shoot();
+            }
+            else
+            {
+                // Play out-of-ammo sound
+                if (outOfAmmoSound != null && !outOfAmmoSound.isPlaying)
+                {
+                    outOfAmmoSound.Play();
+                }
+            }
         }
     }
 
