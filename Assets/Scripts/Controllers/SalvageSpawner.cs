@@ -58,7 +58,7 @@ public class SalvageSpawner : MonoBehaviour
         spawnPoints = new List<Vector3>();
         foreach(GameObject s in centerOfSpawnArea){
             spawnPoints.Add(s.gameObject.transform.position);
-            Debug.Log("adding " +s );
+            //Debug.Log("adding " +s );
         }
     }
 }

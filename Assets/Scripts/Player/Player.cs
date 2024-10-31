@@ -162,10 +162,10 @@ public class Player : MonoBehaviour
 
             GameObject toPlace = GetComponent<PlayerInventory>().SelectFromInventory(); //get item from index
 
-            Ray ray = new Ray(Camera.main.transform.position + new Vector3(0, .5f, 0), Camera.main.transform.forward * 20);
+            Ray ray = new Ray(Camera.main.transform.GetChild(1).transform.position + new Vector3(0, .5f, 0), Camera.main.transform.forward * 20);
             RaycastHit hitData;
             //Physics.Raycast(ray, out hitData);
-            Debug.DrawRay(Camera.main.transform.position + new Vector3(0, .5f, 0), Camera.main.transform.forward * 20, Color.green);
+            Debug.DrawRay(Camera.main.transform.GetChild(1).transform.position + new Vector3(0, .5f, 0), Camera.main.transform.forward * 20, Color.green);
 
 
             if (Physics.Raycast(ray, out hitData) /**&& hitData.distance<=15*/) //did the raycast hit something
@@ -181,7 +181,7 @@ public class Player : MonoBehaviour
                     objPreviewed = true;
                                return true;
                 } else{
-                    Debug.Log("raycast failed");
+                    Debug.Log("raycast failed: tag - "+ hitData.collider.gameObject.tag);
                      return false;
                 }
      

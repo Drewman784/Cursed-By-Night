@@ -84,6 +84,7 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter(Collision other) {
         if(other.gameObject.CompareTag("DefenseInteractable")){
+            Debug.Log("enemy collision w def");
             GetComponent<Animator>().SetTrigger("Attack");
         }
     }
@@ -91,6 +92,9 @@ public class Enemy : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         if(other.gameObject.CompareTag("Trap Attack")){
             TakeDamage(other.gameObject.GetComponentInParent<DefenseBase>().DealDamage());
-        }
+        } /**else if(other.gameObject.CompareTag("DefenseInteractable")){
+            Debug.Log("enemy trigger w def");
+            GetComponent<Animator>().SetTrigger("Attack");
+        }*/
     }
 }

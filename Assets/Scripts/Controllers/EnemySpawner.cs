@@ -51,14 +51,14 @@ public class EnemySpawner : MonoBehaviour
         while(num>0){
             GameObject g = Instantiate(enemyPrefab);
             activeEnemies.Add(g);
-            Debug.Log("spawned?");
+            //Debug.Log("spawned?");
             switch(num)
             {
                 case 1: //spawnpoint on day 1
                     g.transform.position = spawnpoints[0];
-                    Debug.Log("placed?");
-                    Debug.Log("spot: " +spawnpoints[0]);
-                    Debug.Log("loc: " + g.transform.position);
+                    //Debug.Log("placed?");
+                    //Debug.Log("spot: " +spawnpoints[0]);
+                    //Debug.Log("loc: " + g.transform.position);
                     break;
                 case 2: //spawn point on day 2
                     g.transform.position = spawnpoints[1];
