@@ -22,9 +22,11 @@ public class PlayerHealth : MonoBehaviour
     //Varying damage the player takes from enemies
     private void OnCollisionEnter(Collision other) 
     {
-        if (other.gameObject.CompareTag("Zombie Enemy"))
+        Debug.Log ("Hit" + other.gameObject.tag);
+        if (other.gameObject.CompareTag("Enemy"))
         {
             player_hp -= Zombie_Damage;
+            
         }
         /**if (other.gameObject.CompareTag("Enemy 2"))
         {
