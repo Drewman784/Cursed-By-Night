@@ -22,5 +22,5 @@ MonoBehaviour:
   repairedMat: {fileID: 2100000, guid: da43f96083d044661a8e24468e5e24cb, type: 2}
   inactiveMat: {fileID: 2100000, guid: 87dc018f3b6594a1eb19c5b3f3e2c137, type: 2}
   moveable: 1
-  trapDamageDealt: 20
+  trapDamageDealt: 10
   trapActiveLength: 2
