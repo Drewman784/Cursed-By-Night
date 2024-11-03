@@ -3,19 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Enemy
-  - DefenseInteractable
-  - Environment
-  - Attack
-  - Pickup
-  - Zombie Enemy
-  - Trap Attack
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Floor
+  - 
   - Water
   - UI
   - 
