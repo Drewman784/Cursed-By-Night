@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using TMPro;
 using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
@@ -12,11 +13,16 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] public float Zombie_Damage;
     [SerializeField] public float Enemy_2_Damage;
 
+    private static TextMeshProUGUI HealthText;
+
     // Start is called before the first frame update
     void Start()
     {
         // Game Start HP
         player_hp = player_starthp;
+
+        HealthText = GameObject.Find("Health_Text").GetComponent<TextMeshProUGUI>();
+        HealthText.SetText($"HP: {player_hp} ");
     }
 
     //Varying damage the player takes from enemies
@@ -51,5 +57,7 @@ public class PlayerHealth : MonoBehaviour
     void Update()
     {
         Player_TakeDamage();
+
+        HealthText.SetText($"HP: {player_hp} ");
     }
 }
