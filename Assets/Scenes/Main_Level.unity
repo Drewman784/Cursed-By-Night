@@ -153,8 +153,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c4a90f4fd6fe405188a0d7c83ecdbbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cycleLength: 10
-  cycleWarningTime: 15
+  cycleLength: 20
+  cycleWarningTime: 10
   displayWindow: {fileID: 1056785606}
   displayText: {fileID: 1749715468}
   daySkybox: {fileID: 2100000, guid: 1659a51f2a7a743f685d60f1e8e11019, type: 2}
@@ -21169,7 +21169,7 @@ PrefabInstance:
     - target: {fileID: 2423806000400977016, guid: ce12a42954b3943489bd3df545c3a609,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.3
+      value: 151.2
       objectReference: {fileID: 0}
     - target: {fileID: 2423806000400977016, guid: ce12a42954b3943489bd3df545c3a609,
         type: 3}
@@ -21179,7 +21179,7 @@ PrefabInstance:
     - target: {fileID: 2423806000400977016, guid: ce12a42954b3943489bd3df545c3a609,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.5
+      value: 94.9
       objectReference: {fileID: 0}
     - target: {fileID: 2423806000400977016, guid: ce12a42954b3943489bd3df545c3a609,
         type: 3}
@@ -21675,6 +21675,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TriggerBox (door)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4040022546679164557, guid: b2054b536b13a43bfb9fcf938982f82c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

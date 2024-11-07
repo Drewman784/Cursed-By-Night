@@ -4,7 +4,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneSwitch : MonoBehaviour
-{
+{ 
+    void start(){
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
 
     //Start Button
     public void playButton()

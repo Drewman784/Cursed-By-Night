@@ -92,13 +92,14 @@ public class DefenseBase : MonoBehaviour
             Debug.Log("found enemy def");
         } else if (other.CompareTag("Attack")){ //if enemy attack, take damage
             RecieveDamage(1); //BASE TAKES DAMAGE - CURRENTLY SET TO 1
+            Debug.Log(nameOfDefense + " CURRENT HEALTH: " + currentHealth);
         }
     }
 
     private void OnTriggerExit(Collider other) { //dismiss popup and remove self from player script
         if(other.CompareTag("Player")){
             other.GetComponent<Player>().DisengageDefenseInteractableObject(this);
-            Debug.Log("exit range");
+            //Debug.Log("exit range");
             DismissPopUp();
             GoTangible();
         }
@@ -132,16 +133,16 @@ public class DefenseBase : MonoBehaviour
 
     public void RecieveDamage(int damage){ //defense takes damage (<-currently unused)
         currentHealth = currentHealth - damage;
-        Debug.Log("CURRENT HEALTH: " + currentHealth);
+        Debug.Log(nameOfDefense + " CURRENT HEALTH: " + currentHealth);
 
         visualElement.GetComponent<MeshRenderer>().material = damagedMat;
 
-        if(currentHealth <0){
+        if(currentHealth <=0){
             currentHealth = 0;
             functioning = false;
             //maybe switch to third material -> broken?
             visualElement.GetComponent<BoxCollider>().enabled = false; //<- disables the collider when health is zero
-
+            Debug.Log(visualElement.GetComponent<BoxCollider>().enabled);
             visualElement.GetComponent<MeshRenderer>().material = inactiveMat;
         }
 

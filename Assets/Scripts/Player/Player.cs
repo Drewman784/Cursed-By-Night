@@ -133,7 +133,7 @@ public class Player : MonoBehaviour
     {
         defenseInteractableObject = defObj;
         defenseInteractable = true;
-        Debug.Log("entered range");
+        //Debug.Log("entered range");
         if(dayCycle){
             if(defObj.IsMoveable()){ //check if immobile object such as window or door
                 defObj.MovePopUp();

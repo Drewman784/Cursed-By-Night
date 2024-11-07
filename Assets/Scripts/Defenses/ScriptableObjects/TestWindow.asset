@@ -15,7 +15,7 @@ MonoBehaviour:
   currentHealth: 1
   visualPrefab: {fileID: 0}
   nameOfDefense: Window
-  healthMax: 5
+  healthMax: 2
   resourceRepairType: 
   resourceRepairNum: 2
   damagedMat: {fileID: 2100000, guid: 0836adb8b41044ddc97570e2281f39fb, type: 2}

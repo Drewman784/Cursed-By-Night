@@ -32,12 +32,21 @@ public class PlayerHealth : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             player_hp -= Zombie_Damage;
-            
+            Player_TakeDamage();
         }
         /**if (other.gameObject.CompareTag("Enemy 2"))
         {
             player_hp -= Enemy_2_Damage;
         }*/
+    }
+
+    private void OnTriggerEnter(Collision other){ //I THINK WE SHOULD USE THIS ONE
+        Debug.Log ("Hit" + other.gameObject.tag);
+        if (other.gameObject.CompareTag("Attack"))
+        {
+            player_hp -= Zombie_Damage;
+            Player_TakeDamage();
+        }
     }
 
     public void Player_TakeDamage()

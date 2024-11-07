@@ -15,10 +15,12 @@ MonoBehaviour:
   currentHealth: 1
   visualPrefab: {fileID: 0}
   nameOfDefense: Door
-  healthMax: 5
+  healthMax: 2
   resourceRepairType: 
   resourceRepairNum: 2
   damagedMat: {fileID: 2100000, guid: 0836adb8b41044ddc97570e2281f39fb, type: 2}
   repairedMat: {fileID: 2100000, guid: 54f042510f47a4e69b735f06398ef93e, type: 2}
   inactiveMat: {fileID: 2100000, guid: 87dc018f3b6594a1eb19c5b3f3e2c137, type: 2}
   moveable: 0
+  trapDamageDealt: 0
+  trapActiveLength: 0
