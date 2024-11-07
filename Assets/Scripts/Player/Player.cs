@@ -9,6 +9,7 @@ using System;
 using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
 using UnityEditor;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -63,7 +64,15 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if(!inMenu){
+
+        
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                SceneManager.LoadScene("Main_Menu");
+            }
+
+
+            if (!inMenu){
         // Sprint Mechanics
         if (Input.GetKey(KeyCode.LeftShift)) 
         {
