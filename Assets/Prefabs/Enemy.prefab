@@ -32,8 +32,8 @@ Transform:
   m_GameObject: {fileID: 79721739967742468}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.73, y: -0.49, z: -25.61}
-  m_LocalScale: {x: 1.46, y: 2.53, z: 1}
+  m_LocalPosition: {x: -7.0239, y: 3.7892, z: -25.7089}
+  m_LocalScale: {x: 0.5586963, y: 0.9082732, z: 0.8021}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3160193979909992927}
@@ -46,7 +46,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 79721739967742468}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &8570022742405512046
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -67,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 6569781877257646101, guid: e842477079388e44491a8a1b21d9b5de, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -127,7 +127,8 @@ MonoBehaviour:
   lookRadius: 17.4
   attackRadius: 5
   eyeballDropCount: 3
-  eyeballPrefab: {fileID: 1865504848378618904, guid: 9abbc9c8deaf84efa9612178184e7c9c, type: 3}
+  eyeballPrefab: {fileID: 1865504848378618904, guid: 9abbc9c8deaf84efa9612178184e7c9c,
+    type: 3}
   Target: {fileID: 0}
   MoveSpeed: 3.94
 --- !u!195 &8949041324334101793
