@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d793724ea1904d9288fa90ac778d9ef, type: 3}
   m_Name: TestDoor
   m_EditorClassIdentifier: 
-  currentHealth: 1
+  currentHealth: 2
   visualPrefab: {fileID: 0}
   nameOfDefense: Door
-  healthMax: 2
+  healthMax: 3
   resourceRepairType: 
   resourceRepairNum: 2
   damagedMat: {fileID: 2100000, guid: 0836adb8b41044ddc97570e2281f39fb, type: 2}

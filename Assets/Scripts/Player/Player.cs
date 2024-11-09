@@ -147,6 +147,7 @@ public class Player : MonoBehaviour
             if(defObj.IsMoveable()){ //check if immobile object such as window or door
                 defObj.MovePopUp();
             }else{ //if it's not moveable, ensure player can keep going through it
+                defObj.RepairPopUp();
                 defObj.GoIntangible();
             }
         } else{

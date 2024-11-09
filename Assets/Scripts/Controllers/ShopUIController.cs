@@ -39,9 +39,22 @@ public class ShopUIController : MonoBehaviour
 
             //keep the popup facing the camera
             //this references: https://discussions.unity.com/t/how-would-i-make-text-pop-up-above-an-object/694452/2
-            popupCanvas.transform.LookAt(Camera.main.transform.position);
+            //popupCanvas.transform.LookAt(Camera.main.transform.position);
             //popupCanvas.transform.LookAt(new Vector3(Camera.main.transform.position.x,0, Camera.main.transform.position.z));
-            popupCanvas.transform.Rotate(0,180,0);
+            //popupCanvas.transform.Rotate(0,180,0);
+
+            //referenced from: https://www.reddit.com/r/Unity3D/comments/cj7niq/rotating_an_object_to_face_player_on_only_y_axis/
+            float movementStrength = 100f;
+            Vector3 lookDir = popupCanvas.transform.position - Camera.main.transform.position;
+            float radians = Mathf.Atan2(lookDir.x, lookDir.z);
+            float degrees = radians * Mathf.Rad2Deg;
+
+            float str = Mathf.Min(movementStrength * Time.deltaTime, 1);
+            Quaternion targetRotation = Quaternion.Euler(0, degrees + 180, 0);
+            popupCanvas.transform.rotation =  Quaternion.Slerp(popupCanvas.transform.rotation, targetRotation, str);
+           // popupCanvas.transform.GetChild(0).transform.rotation = Quaternion.Euler(0, degrees + 180, 0);
+            
+            
         
         }
     }

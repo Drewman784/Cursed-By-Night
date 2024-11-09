@@ -40,7 +40,7 @@ public class PlayerHealth : MonoBehaviour
         }*/
     }
 
-    private void OnTriggerEnter(Collision other){ //I THINK WE SHOULD USE THIS ONE
+    private void OnTriggerEnter(Collider other){ //I THINK WE SHOULD USE THIS ONE
         Debug.Log ("Hit" + other.gameObject.tag);
         if (other.gameObject.CompareTag("Attack"))
         {

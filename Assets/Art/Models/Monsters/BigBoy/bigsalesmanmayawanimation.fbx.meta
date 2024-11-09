@@ -27,46 +27,9 @@ ModelImporter:
     removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: "Avatar Rig Configuration mis-match. Bone length in configuration
-      does not match position in animation file:\n\t'QuickRigCharacter_LeftUpLeg'
-      : position error = 14968.062500 mm\n\t'QuickRigCharacter_LeftLeg' : position
-      error = 28070.113281 mm\n\t'QuickRigCharacter_LeftFoot' : position error =
-      19807.544922 mm\n\t'QuickRigCharacter_LeftToeBase' : position error = 12415.301758
-      mm\n\t'QuickRigCharacter_RightUpLeg' : position error = 14968.062500 mm\n\t'QuickRigCharacter_RightLeg'
-      : position error = 28070.103516 mm\n\t'QuickRigCharacter_RightFoot' : position
-      error = 19807.548828 mm\n\t'QuickRigCharacter_RightToeBase' : position error
-      = 12415.301758 mm\n\t'QuickRigCharacter_Spine' : position error = 26956.449219
-      mm\n\t'QuickRigCharacter_Spine1' : position error = 34109.386719 mm\n\t'QuickRigCharacter_Spine2'
-      : position error = 29714.785156 mm\n\t'QuickRigCharacter_Spine3' : position
-      error = 27398.433594 mm\n\t'QuickRigCharacter_Spine4' : position error = 24588.511719
-      mm\n\t'QuickRigCharacter_LeftShoulder' : position error = 44951.648438 mm\n\t'QuickRigCharacter_LeftArm'
-      : position error = 35730.601562 mm\n\t'QuickRigCharacter_LeftForeArm' : position
-      error = 37043.046875 mm\n\t'QuickRigCharacter_LeftHand' : position error =
-      37612.265625 mm\n\t'QuickRigCharacter_RightShoulder' : position error = 44951.648438
-      mm\n\t'QuickRigCharacter_RightArm' : position error = 35730.601562 mm\n\t'QuickRigCharacter_RightForeArm'
-      : position error = 37043.062500 mm\n\t'QuickRigCharacter_RightHand' : position
-      error = 37612.253906 mm\n\t'QuickRigCharacter_Neck' : position error = 23003.164062
-      mm\n\t'QuickRigCharacter_Head' : position error = 27077.660156 mm\n"
+    rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
-      might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'QuickRigCharacter_LeftLeg' has translation
-      animation that will be discarded.\n\t'QuickRigCharacter_LeftFoot' has translation
-      animation that will be discarded.\n\t'QuickRigCharacter_RightLeg' has translation
-      animation that will be discarded.\n\t'QuickRigCharacter_RightFoot' has translation
-      animation that will be discarded.\n\t'QuickRigCharacter_Spine' has translation
-      animation that will be discarded.\n\t'QuickRigCharacter_LeftShoulder' has translation
-      animation that will be discarded.\n\t'QuickRigCharacter_LeftArm' has translation
-      animation that will be discarded.\n\t'QuickRigCharacter_LeftForeArm' has translation
-      animation that will be discarded.\n\t'QuickRigCharacter_LeftHand' has translation
-      animation that will be discarded.\n\t'QuickRigCharacter_RightShoulder' has
-      translation animation that will be discarded.\n\t'QuickRigCharacter_RightArm'
-      has translation animation that will be discarded.\n\t'QuickRigCharacter_RightForeArm'
-      has translation animation that will be discarded.\n\t'QuickRigCharacter_RightHand'
-      has translation animation that will be discarded.\n\t'QuickRigCharacter_Neck'
-      has translation animation that will be discarded.\n\t'QuickRigCharacter_Neck'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'QuickRigCharacter_Head'
-      has translation animation that will be discarded.\n"
+    animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -78,7 +41,36 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      internalID: 1827226128182048838
+      firstFrame: 1
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0.96
     isReadable: 0
   meshes:
     lODScreenPercentages: []
@@ -333,7 +325,8 @@ ModelImporter:
     - name: QuickRigCharacter_LeftHand
       parentName: QuickRigCharacter_LeftForeArm
       position: {x: -0.0062573967, y: -0.000000018239554, z: -0.00000005681302}
-      rotation: {x: -0.000000031235682, y: -0.000000016443662, z: 0.000028450693, w: 1}
+      rotation: {x: -0.000000031235682, y: -0.000000016443662, z: 0.000028450693,
+        w: 1}
       scale: {x: 1.0000002, y: 0.99999994, z: 1}
     - name: QuickRigCharacter_RightShoulder
       parentName: QuickRigCharacter_Spine4

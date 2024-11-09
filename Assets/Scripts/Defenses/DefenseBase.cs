@@ -70,7 +70,8 @@ public class DefenseBase : MonoBehaviour
             //this references: https://discussions.unity.com/t/how-would-i-make-text-pop-up-above-an-object/694452/2
             popupCanvas.transform.LookAt(Camera.main.transform.position);
             //popupCanvas.transform.LookAt(new Vector3(Camera.main.transform.position.x,0, Camera.main.transform.position.z));
-            popupCanvas.transform.Rotate(0,180,0);
+            popupCanvas.transform.Rotate(-30,180,0);
+            //popupCanvas.transform.GetChild(0).transform.Rotate(0,180,0);
         }
 
         if(defUp){ //if the defense hitbox is up
