@@ -33,6 +33,7 @@ public class GunSystem : MonoBehaviour
     {
         bulletsLeft = magazineSize;
         readyToShoot = true;
+        UpdateAmmo();
     }
 
     private void Update()
@@ -40,7 +41,7 @@ public class GunSystem : MonoBehaviour
         MyInput();
 
         //SetText
-        text.SetText(bulletsLeft + " / " + magazineSize);
+        //text.SetText(bulletsLeft + " / " + magazineSize);
     }
 
     private void MyInput()
@@ -57,6 +58,7 @@ public class GunSystem : MonoBehaviour
             {
                 bulletsShot = bulletsPerTap;
                 Shoot();
+                UpdateAmmo();
             }
             else
             {
@@ -122,5 +124,14 @@ public class GunSystem : MonoBehaviour
     {
         bulletsLeft = magazineSize;
         reloading = false;
+    }
+
+    public void UpdateAmmo(){ //updates display of how many bullets left
+        text.gameObject.SetActive(true);
+        text.SetText(bulletsLeft + " / " + magazineSize);
+    }
+
+    public void HideAmmo(){ //hides ammo ui (for melee)
+        text.gameObject.SetActive(false);
     }
 }

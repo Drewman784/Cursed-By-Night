@@ -1,9 +1,9 @@
-
+using TMPro;
 using UnityEngine;
 
 public class WeaponSwitching : MonoBehaviour
 {
-
+    [SerializeField] TextMeshProUGUI gunUI;
     public int selectedWeapon = 0;
 
     
@@ -60,5 +60,22 @@ public class WeaponSwitching : MonoBehaviour
                 weapon.gameObject.SetActive(false);
             i++;
         } 
+            if(selectedWeapon != 4){
+                transform.GetChild(selectedWeapon).GetComponent<GunSystem>().UpdateAmmo();
+            } else{
+                transform.GetChild(0).GetComponent<GunSystem>().HideAmmo();
+            }
+            
+            //updates ui to display which gun is selected
+            string gunName = ""; 
+            switch(selectedWeapon){
+                case 0: gunName ="1911 Model"; break;
+                case 1: gunName ="Rifle"; break;
+                case 2: gunName ="Machine Gun"; break;
+                case 3: gunName ="Shotgun"; break;
+                case 4: gunName ="Melee"; break;
+                default: gunName = "error"; break;
+            }
+            gunUI.text = gunName;
     }
 }

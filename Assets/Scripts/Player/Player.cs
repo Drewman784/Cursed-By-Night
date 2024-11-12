@@ -31,10 +31,14 @@ public class Player : MonoBehaviour
 
     private bool inMenu;
 
+    private bool previewing;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         sprinting = false;
+
+        previewing = false;
 
         //REPAIR VARS
         defenseInteractable = false;
@@ -60,6 +64,11 @@ public class Player : MonoBehaviour
         var moveDirection = forward * verticalAxis + right * horizontalAxis;
 
         transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
+
+        //trial run of new preview system
+        if(previewing){
+            PlaceObject();
+        }
     }
 
     void Update()
@@ -110,8 +119,42 @@ public class Player : MonoBehaviour
 
                 }
                 
-            } 
-        }else if(Input.GetKeyDown(KeyCode.R)){ //finish placing defense
+            } //ALTERED VER BELOW
+        } else if(Input.GetKeyDown(KeyCode.R)){ //finish placing defense
+            if(!GetComponent<PlayerInventory>().InventoryIsEmpty() && dayCycle){ //check that inventory isn't empty and right cycle for moving objects
+                if(objPreviewed){ //has the object been previewed?
+                    GetComponent<PlayerInventory>().SelectFromInventory().GetComponent<BoxCollider>().enabled = true;
+                    GetComponent<PlayerInventory>().SelectFromInventory().GetComponentInChildren<BoxCollider>().enabled = true;
+                    GetComponent<PlayerInventory>().RemoveFromInventory();
+                    objPreviewed =false;
+                    Debug.Log("object placed!");
+                } else if(PlaceObject()){ //put it down without previewing
+                 GetComponent<PlayerInventory>().SelectFromInventory().GetComponent<BoxCollider>().enabled = true;
+                 GetComponent<PlayerInventory>().SelectFromInventory().GetComponentInChildren<BoxCollider>().enabled = true;
+                    GetComponent<PlayerInventory>().RemoveFromInventory();
+                    Debug.Log("object placed!");
+                    objPreviewed = false;
+                }
+            }
+        } else if(Input.GetKeyDown(KeyCode.C)){ //preview defense
+            if(!GetComponent<PlayerInventory>().InventoryIsEmpty() && dayCycle){
+                if(previewing){
+                    GetComponent<PlayerInventory>().SelectFromInventory().GetComponent<BoxCollider>().enabled = true;
+                    GetComponent<PlayerInventory>().SelectFromInventory().GetComponentInChildren<BoxCollider>().enabled = true;
+                    GetComponent<PlayerInventory>().RemoveFromInventory();
+                    objPreviewed =false;
+                    Debug.Log("placing now");
+                    PlaceObject();
+                    previewing = false;
+                } else{
+                    previewing = true;
+                }
+
+            }
+        }
+
+        //UNALTERED VER OF ABOVE
+        /*else if(Input.GetKeyDown(KeyCode.R)){ //finish placing defense
             if(!GetComponent<PlayerInventory>().InventoryIsEmpty() && dayCycle){ //check that inventory isn't empty and right cycle for moving objects
                 if(objPreviewed){ //has the object been previewed?
                     GetComponent<PlayerInventory>().SelectFromInventory().GetComponent<BoxCollider>().enabled = true;
@@ -132,7 +175,7 @@ public class Player : MonoBehaviour
                 Debug.Log("placing now");
                 PlaceObject();
             }
-        }
+        }*/
         }
 
     }
