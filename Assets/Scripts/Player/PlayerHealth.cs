@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] public float player_hp;
     [SerializeField] public float Zombie_Damage;
     [SerializeField] public float Enemy_2_Damage;
+
+    public Image healthBar;
 
     private static TextMeshProUGUI HealthText;
 
@@ -55,6 +58,8 @@ public class PlayerHealth : MonoBehaviour
         {
             Player_Perish();
         }
+
+        healthBar.fillAmount = player_hp / player_starthp;
     }
 
     void Player_Perish()

@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 63
+  controlID: 70
   draggingID: 0
 --- !u!114 &6
 MonoBehaviour:
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 64
+  controlID: 71
   draggingID: 0
 --- !u!114 &7
 MonoBehaviour:
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 65
+  controlID: 72
   draggingID: 0
 --- !u!114 &8
 MonoBehaviour:
@@ -393,7 +393,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -109978
+  m_LastSelectedObjectID: -151016
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -533,7 +533,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 1260f8ff5061f8ffea63f8ff7877f9ff9277f9ff60b1f9ff94b2f9ff2eb5f9ffbcc8faffd6c8faff506dfbff886efbff2271fbffb084fcffca84fcff2c0bfdff600cfdff040ffdff9a22feffbe22feff2efbffffbe9600005abc0000b6260100c4610100
+      m_ExpandedIDs: 18b2fdfffaf4ffffda7a0000707b0000dc7b0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -549,7 +549,7 @@ MonoBehaviour:
         m_IsRenaming: 0
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 3}
+        m_ClientGUIView: {fileID: 8}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -1140,9 +1140,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 222.8977, y: -95.729546, z: 654.1179}
+    m_Target: {x: 1614.1362, y: 914.8237, z: 0}
     speed: 2
-    m_Value: {x: 222.8977, y: -95.729546, z: 654.1179}
+    m_Value: {x: 1614.1362, y: 914.8237, z: 0}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1188,13 +1188,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.0981619, y: -0.5409484, z: 0.06374535, w: 0.83290017}
+    m_Target: {x: 0.13638678, y: -0.0014938641, z: 0.00019327278, w: 0.990683}
     speed: 2
-    m_Value: {x: 0.0981596, y: -0.5409357, z: 0.06374385, w: 0.8328806}
+    m_Value: {x: 0.13638292, y: -0.0014938219, z: 0.00019326732, w: 0.990655}
   m_Size:
-    m_Target: 240.3598
+    m_Target: 304.86438
     speed: 2
-    m_Value: 240.3598
+    m_Value: 304.86438
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1265,7 +1265,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs
+    - Assets/Scripts/Player
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1273,16 +1273,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefabs
+  - Assets/Scripts/Player
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Andrew\Desktop\Unity\House Design Apoc\Cursed-By-Night
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 115}
-    m_SelectedIDs: 80820000
-    m_LastClickedID: 33408
-    m_ExpandedIDs: 000000005a820000728200008082000000ca9a3b
+    scrollPos: {x: 0, y: 195}
+    m_SelectedIDs: 2e870000
+    m_LastClickedID: 34606
+    m_ExpandedIDs: 00000000f8860000fa860000fc8600000e87000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1310,7 +1310,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000005a820000
+    m_ExpandedIDs: 00000000f8860000fa860000fc860000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1443,7 +1443,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 925
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
