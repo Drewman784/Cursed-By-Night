@@ -185,7 +185,7 @@ public class Player : MonoBehaviour
     {
         defenseInteractableObject = defObj;
         defenseInteractable = true;
-        //Debug.Log("entered range");
+        Debug.Log("entered range");
         if(dayCycle){
             if(defObj.IsMoveable()){ //check if immobile object such as window or door
                 defObj.MovePopUp();
@@ -234,7 +234,9 @@ public class Player : MonoBehaviour
                 if (hitData.collider.gameObject != toPlace && hitData.collider.gameObject.CompareTag("Environment")) //did it hit a valid place
                 {
                     toPlace.SetActive(true);
-                    toPlace.transform.position = hitData.point + new Vector3(0, toPlace.GetComponent<MeshRenderer>().bounds.extents.y/2, 0);
+                    //toPlace.transform.position = hitData.point + new Vector3(0, toPlace.GetComponent<MeshRenderer>().bounds.extents.y/2, 0);
+                    Debug.Log(toPlace.gameObject.transform.GetChild(0).GetComponent<BoxCollider>().size.y/2);
+                    toPlace.transform.position = hitData.point + new Vector3(0, toPlace.gameObject.transform.GetChild(0).GetComponent<BoxCollider>().size.y/2, 0);
                     objPreviewed = true;
                                return true;
                 } else{

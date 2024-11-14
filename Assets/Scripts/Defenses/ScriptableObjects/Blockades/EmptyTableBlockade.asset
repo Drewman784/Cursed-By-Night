@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d793724ea1904d9288fa90ac778d9ef, type: 3}
+  m_Name: EmptyTableBlockade
+  m_EditorClassIdentifier: 
+  currentHealth: 3
+  visualPrefab: {fileID: 0}
+  nameOfDefense: Empty Table
+  healthMax: 3
+  resourceRepairType: 
+  resourceRepairNum: 3
+  damagedMat: {fileID: 2100000, guid: 0836adb8b41044ddc97570e2281f39fb, type: 2}
+  repairedMat: {fileID: 2100000, guid: 54f042510f47a4e69b735f06398ef93e, type: 2}
+  inactiveMat: {fileID: 2100000, guid: 87dc018f3b6594a1eb19c5b3f3e2c137, type: 2}
+  moveable: 1
+  trapDamageDealt: 0
+  trapActiveLength: 0

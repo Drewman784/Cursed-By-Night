@@ -37,7 +37,8 @@ public class DefenseBase : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        visualElement = transform.GetChild(0).gameObject;
+        visualElement = transform.GetChild(0).gameObject;        
+        popupCanvas = transform.GetChild(1).gameObject;
         defHitbox = transform.GetChild(2).gameObject;
 
         //import from scriptable object
@@ -51,7 +52,7 @@ public class DefenseBase : MonoBehaviour
         currentHealth = defDetails.GetCurrentHealth();
         moveable = defDetails.IsMoveable();
 
-        popupCanvas = transform.GetChild(1).gameObject;
+
 
         DismissPopUp();
         popup = false;
@@ -87,6 +88,7 @@ public class DefenseBase : MonoBehaviour
 
         if(other.CompareTag("Player")){ //if player, give script info to move/use obj
             other.GetComponent<Player>().EnterDefenseRange(this);
+                Debug.Log("p enter range");
 
         } else if(other.CompareTag("Enemy")){ //if enemy, trap springs
             TriggerEffect(other.gameObject);
@@ -159,6 +161,7 @@ public class DefenseBase : MonoBehaviour
     }
 
     public void MovePopUp(){ //brings up a popup with information about inventory
+    Debug.Log("pop");
         popupCanvas.SetActive(true);
         popupCanvas.GetComponentInChildren<TextMeshProUGUI>().text = "Press E to Pick Up";
         popup = true;
