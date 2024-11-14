@@ -189,13 +189,17 @@ public class Player : MonoBehaviour
         if(dayCycle){
             if(defObj.IsMoveable()){ //check if immobile object such as window or door
                 defObj.MovePopUp();
-            }else{ //if it's not moveable, ensure player can keep going through it
+            }else{ 
                 defObj.RepairPopUp();
-                defObj.GoIntangible();
             }
         } else{
             defObj.RepairPopUp();
         }
+
+        if(!defObj.IsMoveable()){//if it's not moveable, ensure player can keep going through it
+            defObj.GoIntangible();
+        }
+        
     }
 
     public void DisengageDefenseInteractableObject(DefenseBase def){ //player exits interaction range with defense object

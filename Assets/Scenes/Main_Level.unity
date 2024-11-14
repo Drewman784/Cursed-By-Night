@@ -153,8 +153,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c4a90f4fd6fe405188a0d7c83ecdbbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cycleLength: 60
-  cycleWarningTime: 15
+  cycleLength: 10
+  cycleWarningTime: 5
   displayWindow: {fileID: 1056785606}
   displayText: {fileID: 1749715468}
   daySkybox: {fileID: 2100000, guid: 1659a51f2a7a743f685d60f1e8e11019, type: 2}
