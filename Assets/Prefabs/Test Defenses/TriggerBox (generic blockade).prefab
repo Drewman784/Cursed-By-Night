@@ -355,6 +355,7 @@ GameObject:
   - component: {fileID: 4363560871439976641}
   - component: {fileID: 17351447955018863}
   - component: {fileID: 335610445845806328}
+  - component: {fileID: -995322236755583157}
   m_Layer: 0
   m_Name: TriggerBox (generic blockade)
   m_TagString: DefenseInteractable
@@ -491,6 +492,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-995322236755583157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7867657231011729833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 1
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1 &8283368485832793117
 GameObject:
   m_ObjectHideFlags: 0

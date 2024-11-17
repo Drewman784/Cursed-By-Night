@@ -18,6 +18,10 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private GameObject eyeballPrefab;
 
+    private bool hitColorOn;
+
+    private float hitCt;
+
     NavMeshAgent agent;
     public Transform Target;
     [SerializeField] public float MoveSpeed = 10;
@@ -34,10 +38,25 @@ public class Enemy : MonoBehaviour
     {
         Target = PlayerManager.instance.player.transform;
         agent = GetComponent<NavMeshAgent>();
+
+        //hit recoil 
+        hitCt = 0;
+        hitColorOn = false;
     }
 
     private void Update()
     {
+        //damage color check
+
+        if(hitColorOn){ //after being hit, return to usual color
+            hitCt += Time.deltaTime;
+            if(hitCt >=1){
+                hitColorOn = false;
+                gameObject.transform.GetChild(2).gameObject.transform.GetComponent<Renderer>().material.color = Color.white;
+            }
+        }
+
+
         float distance = Vector3.Distance(Target.position, transform.position);
 
         if(distance<= attackRadius){ //if enemy is close enough to player, attack
@@ -48,6 +67,9 @@ public class Enemy : MonoBehaviour
         {
             agent.SetDestination(Target.position);
         }
+
+        //look at target
+        transform.LookAt(Target.position);
 
         // Movement towards the target
         Vector3 moveDir = (Target.position - transform.position).normalized;
@@ -64,6 +86,10 @@ public class Enemy : MonoBehaviour
     {
         health -= amount;
         Debug.Log("Enemy Health: " + health); // Debug log for health tracking
+        Debug.Log("HIT FOR: " + amount);
+        hitColorOn = true; //change color when hit
+        hitCt = 0;
+        gameObject.transform.GetChild(2).gameObject.transform.GetComponent<Renderer>().material.color = Color.red;
 
         if (health <= 0f)
         {

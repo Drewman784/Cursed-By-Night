@@ -253,6 +253,7 @@ GameObject:
   - component: {fileID: 7703725620628903745}
   - component: {fileID: 8925189718580642942}
   - component: {fileID: 5417844590778603915}
+  - component: {fileID: 2805130907522859956}
   m_Layer: 0
   m_Name: TriggerBox (window)
   m_TagString: DefenseInteractable
@@ -389,6 +390,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2805130907522859956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6114883545880037475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 1
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1 &6288466303359906923
 GameObject:
   m_ObjectHideFlags: 0

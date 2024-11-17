@@ -42,17 +42,20 @@ public class EnemySpawner : MonoBehaviour
             g.transform.position = new Vector3(-8,-.5f,-25);
             activeEnemies.Add(g);
         }**/
-        int num = daynum;
+        int num = daynum * 3; //three additional enemies per night
 
-        if(num>7){
-            num = 7;
+        if(num>27){ //cap at 27 enemies
+            num = 27;
         }
 
         while(num>0){
             GameObject g = Instantiate(enemyPrefab);
             activeEnemies.Add(g);
+
+            int placement = Random.Range(1,8); //randomize spawnpoint of enemy
+            Debug.Log("Enemy Placement: " + placement);
             //Debug.Log("spawned?");
-            switch(num)
+            switch(placement)
             {
                 case 1: //spawnpoint on day 1
                     g.transform.position = spawnpoints[0];
