@@ -31,7 +31,7 @@ public class DefenseBase : MonoBehaviour
 
     private bool defUp; //is the defense hitbox up
 
-    private float defct; //how long has the defense been up
+    private float defct; //how long has the defense hitbox been up
     
 
     // Start is called before the first frame update
@@ -115,7 +115,10 @@ public class DefenseBase : MonoBehaviour
                 currentHealth = healthMax;
                 inven.SetSalvageCount(inven.GetSalvageCount() - resourceRepairNum);
                 visualElement.GetComponent<MeshRenderer>().material = repairedMat;
+
                 Debug.Log("repaired!");
+                GetComponent<AudioSource>().PlayOneShot(defDetails.GetRepairSound());
+
                 functioning = true;
                 visualElement.GetComponent<BoxCollider>().enabled = true;
             }
@@ -125,6 +128,7 @@ public class DefenseBase : MonoBehaviour
     private void TriggerEffect(GameObject enemy){ // trap effect
         if(functioning){
             defHitbox.SetActive(true);
+            GetComponent<AudioSource>().PlayOneShot(defDetails.GetTrapSound());
             defUp = true;
             defct = 0;
         }
@@ -147,6 +151,8 @@ public class DefenseBase : MonoBehaviour
             visualElement.GetComponent<BoxCollider>().enabled = false; //<- disables the collider when health is zero
             Debug.Log(visualElement.GetComponent<BoxCollider>().enabled);
             visualElement.GetComponent<MeshRenderer>().material = inactiveMat;
+
+            GetComponent<AudioSource>().PlayOneShot(defDetails.GetBreakClip());
         }
 
         

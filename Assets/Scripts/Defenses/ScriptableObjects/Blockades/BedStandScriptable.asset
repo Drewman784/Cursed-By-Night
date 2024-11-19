@@ -24,3 +24,6 @@ MonoBehaviour:
   moveable: 1
   trapDamageDealt: 0
   trapActiveLength: 0
+  repairSound: {fileID: 8300000, guid: 8713a926df7104bd29279154cbfb63cb, type: 3}
+  breakSound: {fileID: 8300000, guid: 45336427b9e124d5b94fc513473d60f3, type: 3}
+  trapSound: {fileID: 0}

@@ -33,6 +33,13 @@ public class PlayerInventory : MonoBehaviour
 
     [SerializeField] private List<GameObject> inventoryPanels;
 
+    [SerializeField] private AudioClip pickupSound;
+    [SerializeField] private AudioClip putDownSound;
+
+    [SerializeField] private AudioClip salvageSound;
+    [SerializeField] private AudioClip eyeballSound;
+    [SerializeField] private AudioClip buySound;
+
     void Start()
     {
         heldDefenses = new List<GameObject>();
@@ -211,5 +218,13 @@ public class PlayerInventory : MonoBehaviour
                 e.SetActive(false);
             }
         }
+    }
+
+    public void PlayPickupSound(GameObject g){ //cues pickup sound from selected object
+        g.GetComponent<AudioSource>().PlayOneShot(pickupSound);
+    }
+
+    public void PlayPlacementSound(GameObject g){ //cues put down sound from selected object
+        g.GetComponent<AudioSource>().PlayOneShot(putDownSound);
     }
 }

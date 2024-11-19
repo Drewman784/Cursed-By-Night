@@ -24,6 +24,12 @@ public class DefenseScriptableBase : ScriptableObject
 
     [SerializeField] int trapActiveLength; //length of time trap is active
 
+    [SerializeField] AudioClip repairSound;
+
+    [SerializeField] AudioClip breakSound;
+
+    [SerializeField] AudioClip trapSound;
+
     public GameObject GetVisualPrefab(){
         return visualPrefab;
     }
@@ -69,6 +75,18 @@ public class DefenseScriptableBase : ScriptableObject
 
     public int GetTrapLength(){
         return trapActiveLength;
+    }
+
+    public AudioClip GetBreakClip(){ // returns the defense's break sound
+        return breakSound;
+    }
+
+    public AudioClip GetRepairSound(){//returns sound for repairing defense
+        return repairSound;
+    }
+
+    public AudioClip GetTrapSound(){ // returns sound for trap triggering
+        return trapSound;
     }
 
 }

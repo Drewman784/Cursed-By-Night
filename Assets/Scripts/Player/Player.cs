@@ -109,6 +109,7 @@ public class Player : MonoBehaviour
                      //defenseInteractableObject.gameObject.transform.parent = invenPoint.transform; //parent object to player 
 
                      GetComponent<PlayerInventory>().AddToInventory(defenseInteractableObject.gameObject); //add to inventory
+                     GetComponent<PlayerInventory>().PlayPickupSound(GetComponent<PlayerInventory>().SelectFromInventory());
                      defenseInteractableObject.gameObject.GetComponent<BoxCollider>().enabled = false;
                      defenseInteractableObject.gameObject.GetComponentInChildren<BoxCollider>().enabled = false;
                      defenseInteractableObject.DismissPopUp();
@@ -125,12 +126,14 @@ public class Player : MonoBehaviour
                 if(objPreviewed){ //has the object been previewed?
                     GetComponent<PlayerInventory>().SelectFromInventory().GetComponent<BoxCollider>().enabled = true;
                     GetComponent<PlayerInventory>().SelectFromInventory().GetComponentInChildren<BoxCollider>().enabled = true;
+                    GetComponent<PlayerInventory>().PlayPlacementSound(GetComponent<PlayerInventory>().SelectFromInventory());
                     GetComponent<PlayerInventory>().RemoveFromInventory();
                     objPreviewed =false;
                     Debug.Log("object placed!");
                 } else if(PlaceObject()){ //put it down without previewing
                  GetComponent<PlayerInventory>().SelectFromInventory().GetComponent<BoxCollider>().enabled = true;
                  GetComponent<PlayerInventory>().SelectFromInventory().GetComponentInChildren<BoxCollider>().enabled = true;
+                 GetComponent<PlayerInventory>().PlayPlacementSound(GetComponent<PlayerInventory>().SelectFromInventory());
                     GetComponent<PlayerInventory>().RemoveFromInventory();
                     //Debug.Log("object placed!");
                     objPreviewed = false;
@@ -141,6 +144,7 @@ public class Player : MonoBehaviour
                 if(previewing){
                     GetComponent<PlayerInventory>().SelectFromInventory().GetComponent<BoxCollider>().enabled = true;
                     GetComponent<PlayerInventory>().SelectFromInventory().GetComponentInChildren<BoxCollider>().enabled = true;
+                    GetComponent<PlayerInventory>().PlayPlacementSound(GetComponent<PlayerInventory>().SelectFromInventory());
                     GetComponent<PlayerInventory>().RemoveFromInventory();
                     objPreviewed =false;
                     //Debug.Log("placing now");

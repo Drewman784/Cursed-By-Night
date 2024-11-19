@@ -14,6 +14,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] public float Zombie_Damage;
     [SerializeField] public float Enemy_2_Damage;
 
+    [SerializeField] private float amountHealedPerDay;
+
     public Image healthBar;
 
     private static TextMeshProUGUI HealthText;
@@ -59,7 +61,7 @@ public class PlayerHealth : MonoBehaviour
             Player_Perish();
         }
 
-        healthBar.fillAmount = player_hp / player_starthp;
+        healthBar.fillAmount = player_hp / player_starthp; //update ui
     }
 
     void Player_Perish()
@@ -73,5 +75,15 @@ public class PlayerHealth : MonoBehaviour
         Player_TakeDamage();
 
         HealthText.SetText($"HP: {player_hp} ");
+    }
+
+    public void HealPlayer(){ //heal player by small amount every dawn
+        player_hp += amountHealedPerDay;
+
+        if(player_hp >= player_starthp){ //cap health
+            player_hp = player_starthp;
+        }
+
+        healthBar.fillAmount = player_hp / player_starthp; //update ui
     }
 }
