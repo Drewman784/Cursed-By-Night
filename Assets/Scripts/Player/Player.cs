@@ -9,7 +9,7 @@ using System;
 using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
 using UnityEditor;
-using UnityEngine.SceneManagement;
+//using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -75,10 +75,10 @@ public class Player : MonoBehaviour
     {
 
         
-            if (Input.GetKeyDown(KeyCode.Q)) //switched from escape key
-            {
-                SceneManager.LoadScene("Main_Menu");
-            }
+            //if (Input.GetKeyDown(KeyCode.Q)) //switched from escape key
+            //{
+            //    SceneManager.LoadScene("Main_Menu");
+            //}
 
 
             if (!inMenu){
