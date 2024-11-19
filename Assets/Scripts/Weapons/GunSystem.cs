@@ -76,11 +76,11 @@ public class GunSystem : MonoBehaviour
         readyToShoot = false;
 
         //Spread
-        float x = Random.Range(-spread, spread);
-        float y = Random.Range(-spread, spread);
+        //float x = Random.Range(-spread, spread);
+        //float y = Random.Range(-spread, spread);
 
-        //Calculate Direction with Spread
-        Vector3 direction = fpsCam.transform.forward + new Vector3(x, y, 0);
+        //Calculate Direction
+        Vector3 direction = fpsCam.transform.forward; //+ new Vector3(x, y, 0);
 
         // Single Raycast with Enemy Layer Mask
         if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, range, whatIsEnemy))
