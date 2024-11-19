@@ -42,10 +42,10 @@ public class EnemySpawner : MonoBehaviour
             g.transform.position = new Vector3(-8,-.5f,-25);
             activeEnemies.Add(g);
         }**/
-        int num = daynum * 3; //three additional enemies per night
+        int num = daynum * 5; //three additional enemies per night
 
         if(num>27){ //cap at 27 enemies
-            num = 27;
+            num = 50;
         }
 
         while(num>0){
