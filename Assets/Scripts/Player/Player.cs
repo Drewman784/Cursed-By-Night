@@ -75,7 +75,7 @@ public class Player : MonoBehaviour
     {
 
         
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Q)) //switched from escape key
             {
                 SceneManager.LoadScene("Main_Menu");
             }
@@ -132,7 +132,7 @@ public class Player : MonoBehaviour
                  GetComponent<PlayerInventory>().SelectFromInventory().GetComponent<BoxCollider>().enabled = true;
                  GetComponent<PlayerInventory>().SelectFromInventory().GetComponentInChildren<BoxCollider>().enabled = true;
                     GetComponent<PlayerInventory>().RemoveFromInventory();
-                    Debug.Log("object placed!");
+                    //Debug.Log("object placed!");
                     objPreviewed = false;
                 }
             }
@@ -143,7 +143,7 @@ public class Player : MonoBehaviour
                     GetComponent<PlayerInventory>().SelectFromInventory().GetComponentInChildren<BoxCollider>().enabled = true;
                     GetComponent<PlayerInventory>().RemoveFromInventory();
                     objPreviewed =false;
-                    Debug.Log("placing now");
+                    //Debug.Log("placing now");
                     PlaceObject();
                     previewing = false;
                 } else{
@@ -227,16 +227,20 @@ public class Player : MonoBehaviour
 
             if (Physics.Raycast(ray, out hitData) /**&& hitData.distance<=15*/) //did the raycast hit something
             {
-                Debug.Log("YEAH");
+                //Debug.Log("YEAH");
                 //LineRenderer line = new LineRenderer();
                 //line.SetPosition(0, ray.origin);
                 //line.SetPosition(1, hitData.point);
                 if (hitData.collider.gameObject != toPlace && hitData.collider.gameObject.CompareTag("Environment")) //did it hit a valid place
                 {
                     toPlace.SetActive(true);
+                    GameObject model = toPlace.gameObject.transform.GetChild(0).gameObject;
                     //toPlace.transform.position = hitData.point + new Vector3(0, toPlace.GetComponent<MeshRenderer>().bounds.extents.y/2, 0);
-                    Debug.Log(toPlace.gameObject.transform.GetChild(0).GetComponent<BoxCollider>().size.y/2);
-                    toPlace.transform.position = hitData.point + new Vector3(0, toPlace.gameObject.transform.GetChild(0).GetComponent<BoxCollider>().size.y/2, 0);
+                    //float h =  model.GetComponent<BoxCollider>().size.y/2 * model.transform.GetChild(0).gameObject.transform.localScale.y;
+                    float h =  toPlace.transform.localScale.y/2;
+                    Debug.Log("height: "+ h + " ground at: " + hitData.point.y);
+                    toPlace.transform.position = hitData.point + new Vector3(0,h, 0);
+                    Debug.Log("placed at: " + toPlace.transform.position);
                     objPreviewed = true;
                                return true;
                 } else{
