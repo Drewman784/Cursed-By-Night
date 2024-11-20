@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     public float sprintSpeed;
     //[SerializeField] private bool canSprint;
 
-    private Rigidbody2D rb;
+    private Rigidbody rb;
     private bool sprinting;
 
     //VARIABLES FOR REPAIR - MAYBE MOVE
@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody>();
         sprinting = false;
 
         previewing = false;
@@ -52,21 +52,22 @@ public class Player : MonoBehaviour
         //Movement Mechanics
         float horizontalAxis = Input.GetAxis("Horizontal");
         float verticalAxis = Input.GetAxis("Vertical");
-
+        
         var camera = Camera.main;
         var forward = camera.transform.forward;
         var right = camera.transform.right;
-
+        
         forward.y = 0f;
         right.y = 0f;
         forward.Normalize();
         right.Normalize();
         var moveDirection = forward * verticalAxis + right * horizontalAxis;
+        
+        rb.velocity = (moveDirection * moveSpeed * Time.deltaTime);
 
-        transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
 
         //trial run of new preview system
-        if(previewing){
+        if (previewing){
             PlaceObject();
         }
     }
