@@ -107,6 +107,7 @@ public class PlayerInventory : MonoBehaviour
     public void AddSalvageCount(int add){ //adds parameter amount to salvage count
         salvage += add;
         Realsalvage += add;
+        GetComponent<AudioSource>().PlayOneShot(salvageSound);
         UpdateUI();
     }
 
@@ -116,12 +117,14 @@ public class PlayerInventory : MonoBehaviour
 
     public void SetLootCurrency(int value){ //modifies loot currency
         lootCurrency = value;
+        GetComponent<AudioSource>().PlayOneShot(buySound);
         UpdateUI();
     }
 
     public void AddLootCurrency(int add){ //adds parameter amount to loot currency
         lootCurrency+=add;
         ReallootCurrency += add;
+        GetComponent<AudioSource>().PlayOneShot(eyeballSound);
         UpdateUI();
     }
 

@@ -7,6 +7,7 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
+    [Header("Stats")]
     [SerializeField] public float health = 20f;
     [SerializeField] public float damage = 10f;
 
@@ -14,9 +15,19 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] public float attackRadius = 5f;
 
+    [SerializeField] public float MoveSpeed = 10;
+
+    [Header("Drops")]
     [SerializeField] private int eyeballDropCount;
 
     [SerializeField] private GameObject eyeballPrefab;
+
+    [Header("Sounds")]
+
+    [SerializeField] private List<AudioClip> idleSounds;
+    [SerializeField] AudioClip attackSound;
+    [SerializeField] AudioClip damageSound;
+    [SerializeField] AudioClip deathSound;
 
     private bool hitColorOn;
 
@@ -24,7 +35,7 @@ public class Enemy : MonoBehaviour
 
     NavMeshAgent agent;
     public Transform Target;
-    [SerializeField] public float MoveSpeed = 10;
+
     private GameObject player;
     private Player movement;
 
