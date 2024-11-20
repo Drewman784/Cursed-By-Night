@@ -143,23 +143,27 @@ public class DayCycle : MonoBehaviour
         float currentSunRotation = currentTime;
 
         if (currentSunRotation >= 5.7f && currentSunRotation <= 17.7f)
-        {
+        {   
+            if(!isDay){
             sunLightData.EnableShadows(true);
             moonLightData.EnableShadows(false);
             isDay = true;
 
             //call day event
             EnterDay.Invoke();
+            }
         }
 
         else
         {
+            if(isDay){
             sunLightData.EnableShadows(false);
             moonLightData.EnableShadows(true);
             isDay = false;
 
             //call night event
             EnterNight.Invoke();
+            }
         }
 
         if (currentSunRotation >= 5.7f && currentSunRotation <= 18.3f)

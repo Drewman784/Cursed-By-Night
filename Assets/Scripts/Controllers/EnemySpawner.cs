@@ -42,11 +42,14 @@ public class EnemySpawner : MonoBehaviour
             g.transform.position = new Vector3(-8,-.5f,-25);
             activeEnemies.Add(g);
         }**/
-        int num = daynum * 5; //three additional enemies per night
+        int num = daynum * 4; //three additional enemies per night
 
-        if(num>27){ //cap at 27 enemies
-            num = 50;
+        if(num>28){ //cap at 27 enemies
+            num = 28;
         }
+
+        ///Debug.Log("daynum" + daynum);
+        //Debug.Log("enemies to spawn: " + num);
 
         while(num>0){
             GameObject g = Instantiate(enemyPrefab);
@@ -106,6 +109,7 @@ public class EnemySpawner : MonoBehaviour
 
         if(activeEnemies.Count == 0 & !day){ //if enemies are defeated but it's still night, spawn more
             SpawnEnemies();
+            Debug.Log("Respawn Enemies");
         }
     }
 }
