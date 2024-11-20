@@ -31,6 +31,7 @@ public class DayNightCycleController : MonoBehaviour
     public UnityEvent EnterDay; //this triggers when the day cycle begins and calls all the necessary methods
     public UnityEvent EnterNight;//this triggers when the night cycle begins and calls all the necessary methods
 
+
     // Start is called before the first frame update
     void Start()
     {

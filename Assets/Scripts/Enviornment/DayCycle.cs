@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.HighDefinition;
+using UnityEngine.Events;
 
 public class DayCycle : MonoBehaviour
 {
@@ -50,11 +51,17 @@ public class DayCycle : MonoBehaviour
     [Range(-180f, 180f)]
     public float polarStarLongitude = 90f;
 
+    [Header("Events")]
+    public UnityEvent EnterDay; //this triggers when the day cycle begins and calls all the necessary methods
+    public UnityEvent EnterNight;//this triggers when the night cycle begins and calls all the necessary methods
+
     void Start()
     {
         UpdateTimeText();
         CheckShadowStatus();
         SkyStar();
+
+        
     }
 
     void Update()
@@ -140,6 +147,9 @@ public class DayCycle : MonoBehaviour
             sunLightData.EnableShadows(true);
             moonLightData.EnableShadows(false);
             isDay = true;
+
+            //call day event
+            EnterDay.Invoke();
         }
 
         else
@@ -147,6 +157,9 @@ public class DayCycle : MonoBehaviour
             sunLightData.EnableShadows(false);
             moonLightData.EnableShadows(true);
             isDay = false;
+
+            //call night event
+            EnterNight.Invoke();
         }
 
         if (currentSunRotation >= 5.7f && currentSunRotation <= 18.3f)
