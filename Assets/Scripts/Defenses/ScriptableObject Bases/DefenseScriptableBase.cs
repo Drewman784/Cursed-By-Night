@@ -30,6 +30,8 @@ public class DefenseScriptableBase : ScriptableObject
 
     [SerializeField] AudioClip trapSound;
 
+    [SerializeField] bool testSimpleModel;
+
     public GameObject GetVisualPrefab(){
         return visualPrefab;
     }
@@ -87,6 +89,10 @@ public class DefenseScriptableBase : ScriptableObject
 
     public AudioClip GetTrapSound(){ // returns sound for trap triggering
         return trapSound;
+    }
+
+    public bool IsSimpleModel(){
+        return testSimpleModel;
     }
 
 }

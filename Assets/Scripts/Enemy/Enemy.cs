@@ -71,7 +71,7 @@ public class Enemy : MonoBehaviour
         float distance = Vector3.Distance(Target.position, transform.position);
 
         if(distance<= attackRadius){ //if enemy is close enough to player, attack
-            GetComponent<Animator>().SetTrigger("Attack");
+            //GetComponent<Animator>().SetTrigger("Attack");
         }
 
         if (distance <= lookRadius) //if enemy is close enough to see player, follow player

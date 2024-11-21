@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
     private DefenseBase defenseInteractableObject;
     private bool defenseInteractable;
 
-    private bool dayCycle;
+    public bool dayCycle;
 
     private bool objPreviewed;
 
@@ -243,9 +243,9 @@ public class Player : MonoBehaviour
                     //toPlace.transform.position = hitData.point + new Vector3(0, toPlace.GetComponent<MeshRenderer>().bounds.extents.y/2, 0);
                     //float h =  model.GetComponent<BoxCollider>().size.y/2 * model.transform.GetChild(0).gameObject.transform.localScale.y;
                     float h =  toPlace.transform.localScale.y/2;
-                    Debug.Log("height: "+ h + " ground at: " + hitData.point.y);
+                    //Debug.Log("height: "+ h + " ground at: " + hitData.point.y);
                     toPlace.transform.position = hitData.point + new Vector3(0,h, 0);
-                    Debug.Log("placed at: " + toPlace.transform.position);
+                    //Debug.Log("placed at: " + toPlace.transform.position);
                     objPreviewed = true;
                                return true;
                 } else{

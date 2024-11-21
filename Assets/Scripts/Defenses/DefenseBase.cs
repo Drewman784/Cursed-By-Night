@@ -33,6 +33,7 @@ public class DefenseBase : MonoBehaviour
 
     private float defct; //how long has the defense hitbox been up
     
+    private List<Material> matColors;
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +53,7 @@ public class DefenseBase : MonoBehaviour
         currentHealth = defDetails.GetCurrentHealth();
         moveable = defDetails.IsMoveable();
 
+        matColors = new List<Material>();
 
 
         DismissPopUp();
@@ -61,6 +63,13 @@ public class DefenseBase : MonoBehaviour
 
         functioning = true;
         defHitbox.SetActive(false);
+
+        if(!defDetails.IsSimpleModel()){
+            Debug.Log(nameOfDefense + visualElement.transform.childCount);
+            for(int a = 0; a<visualElement.transform.childCount;a++){
+                matColors.Add(visualElement.transform.GetChild(a).GetComponent<MeshRenderer>().material);
+            }
+        }
 
     }
 
@@ -114,13 +123,24 @@ public class DefenseBase : MonoBehaviour
             if(inven.GetSalvageCount() >= resourceRepairNum){ // check if enough resources
                 currentHealth = healthMax;
                 inven.SetSalvageCount(inven.GetSalvageCount() - resourceRepairNum);
-                visualElement.GetComponent<MeshRenderer>().material = repairedMat;
+                //visualElement.GetComponent<MeshRenderer>().material = repairedMat;
 
                 Debug.Log("repaired!");
                 GetComponent<AudioSource>().PlayOneShot(defDetails.GetRepairSound());
 
                 functioning = true;
                 visualElement.GetComponent<BoxCollider>().enabled = true;
+
+                if(defDetails.IsSimpleModel()){
+                    visualElement.GetComponent<MeshRenderer>().material = repairedMat;
+                } else{
+                    Debug.Log("matcolors yes?");
+                    for(int a = 0; a<visualElement.transform.childCount;a++){
+                    visualElement.transform.GetChild(a).GetComponent<Renderer>().material.color = Color.white;
+                    visualElement.transform.GetChild(a).GetComponent<MeshRenderer>().material = matColors[a];
+                }
+                }
+
             }
         }
     }
@@ -142,19 +162,47 @@ public class DefenseBase : MonoBehaviour
         currentHealth = currentHealth - damage;
         Debug.Log(nameOfDefense + " CURRENT HEALTH: " + currentHealth);
 
-        visualElement.GetComponent<MeshRenderer>().material = damagedMat;
+        if(functioning){
+       //visualElement.GetComponent<MeshRenderer>().material = damagedMat;
 
-        if(currentHealth <=0){
-            currentHealth = 0;
-            functioning = false;
-            //maybe switch to third material -> broken?
-            visualElement.GetComponent<BoxCollider>().enabled = false; //<- disables the collider when health is zero
-            Debug.Log(visualElement.GetComponent<BoxCollider>().enabled);
-            visualElement.GetComponent<MeshRenderer>().material = inactiveMat;
+            if(currentHealth <=0){
+                currentHealth = 0;
+                functioning = false;
+                //maybe switch to third material -> broken?
+                visualElement.GetComponent<BoxCollider>().enabled = false; //<- disables the collider when health is zero
+                Debug.Log(visualElement.GetComponent<BoxCollider>().enabled);
+                 //visualElement.GetComponent<MeshRenderer>().material = inactiveMat;
 
-            GetComponent<AudioSource>().PlayOneShot(defDetails.GetBreakClip());
+
+                if(defDetails.IsSimpleModel()){
+                    visualElement.GetComponent<MeshRenderer>().material = inactiveMat;
+                } else{
+                    for(int a = 0; a<visualElement.transform.childCount;a++){
+                        Renderer r = this.GetComponent<Renderer>();
+		                Color colorOrig = r.material.color;
+		                //inactiveColor = new Color (255f, colorOrig.g, colorOrig.b, 0.5f);
+
+                        visualElement.transform.GetChild(a).GetComponent<Renderer>().material.color =  new Color (255f, 0, 0, 0.5f);
+                    }
+                }
+
+                GetComponent<AudioSource>().PlayOneShot(defDetails.GetBreakClip());
+                Debug.Log(nameOfDefense + " destroyed");
+                functioning = false;
+            } else{
+
+                if(defDetails.IsSimpleModel()){
+                    visualElement.GetComponent<MeshRenderer>().material = damagedMat;
+                } else{
+                    for(int a = 0; a<visualElement.transform.childCount;a++){
+                    visualElement.transform.GetChild(a).GetComponent<Renderer>().material.color = Color.grey;
+                }
+                }
+
+                
+                Debug.Log(nameOfDefense + " damaged");
+            }
         }
-
         
     }
 
