@@ -122,7 +122,7 @@ public class Player : MonoBehaviour
                 }
                 
             } //ALTERED VER BELOW
-        } else if(Input.GetKeyDown(KeyCode.R)){ //finish placing defense
+        } /*else if(Input.GetKeyDown(KeyCode.R)){ //finish placing defense
             if(!GetComponent<PlayerInventory>().InventoryIsEmpty() && dayCycle){ //check that inventory isn't empty and right cycle for moving objects
                 if(objPreviewed){ //has the object been previewed?
                     GetComponent<PlayerInventory>().SelectFromInventory().GetComponent<BoxCollider>().enabled = true;
@@ -140,7 +140,7 @@ public class Player : MonoBehaviour
                     objPreviewed = false;
                 }
             }
-        } else if(Input.GetKeyDown(KeyCode.C)){ //preview defense
+        }*/ else if(Input.GetKeyDown(KeyCode.C)){ //preview defense
             if(!GetComponent<PlayerInventory>().InventoryIsEmpty() && dayCycle){
                 if(previewing){
                     GetComponent<PlayerInventory>().SelectFromInventory().GetComponent<BoxCollider>().enabled = true;

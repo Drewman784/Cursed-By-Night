@@ -32,7 +32,7 @@ public class WeaponSwitching : MonoBehaviour
                 selectedWeapon--;
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        /*if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             selectedWeapon = 0;
         }
@@ -40,7 +40,7 @@ public class WeaponSwitching : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             selectedWeapon = 1;
-        }
+        }*/
 
         if (previousSelectedWeapon != selectedWeapon)
         {
