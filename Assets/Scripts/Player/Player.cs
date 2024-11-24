@@ -14,11 +14,15 @@ using UnityEditor;
 public class Player : MonoBehaviour
 {
     public float moveSpeed;
+    public float turnSpeed; 
+    public float gravity;
+    private float velocity;
     public float normalmoveSpeed;
     public float sprintSpeed;
     //[SerializeField] private bool canSprint;
 
-    private Rigidbody rb;
+    //private Rigidbody rb;
+    private CharacterController cc;
     private bool sprinting;
 
     //VARIABLES FOR REPAIR - MAYBE MOVE
@@ -35,7 +39,8 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        //rb = GetComponent<Rigidbody>();
+        cc = gameObject.GetComponent<CharacterController>();
         sprinting = false;
 
         previewing = false;
@@ -50,8 +55,8 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         //Movement Mechanics
-        float horizontalAxis = Input.GetAxis("Horizontal");
-        float verticalAxis = Input.GetAxis("Vertical");
+        //float horizontalAxis = Input.GetAxis("Horizontal");
+        //float verticalAxis = Input.GetAxis("Vertical");
         
         var camera = Camera.main;
         var forward = camera.transform.forward;
@@ -61,9 +66,11 @@ public class Player : MonoBehaviour
         right.y = 0f;
         forward.Normalize();
         right.Normalize();
-        var moveDirection = forward * verticalAxis + right * horizontalAxis;
+        //var moveDirection = forward * verticalAxis + right * horizontalAxis;
         
-        rb.velocity = (moveDirection * moveSpeed * Time.deltaTime);
+        //cc.velocity = (moveDirection * moveSpeed * Time.deltaTime);
+
+        
 
 
         //trial run of new preview system
@@ -74,6 +81,16 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+
+
+        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        cc.Move(move * Time.deltaTime * moveSpeed);
+        //cc.Move(playerVelocity * Time.deltaTime);
+
+        if (move != Vector3.zero)
+        {
+            gameObject.transform.forward = move;
+        }
 
         
             //if (Input.GetKeyDown(KeyCode.Q)) //switched from escape key
@@ -183,6 +200,11 @@ public class Player : MonoBehaviour
         }*/
         }
 
+    }
+
+    private void ApplyRotation()
+    {
+        
     }
 
     //REPAIR CODE
