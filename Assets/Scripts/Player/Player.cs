@@ -14,8 +14,6 @@ using UnityEditor;
 public class Player : MonoBehaviour
 {
     public float moveSpeed;
-    public float turnSpeed; 
-    public float gravity;
     private float velocity;
     public float normalmoveSpeed;
     public float sprintSpeed;
@@ -55,23 +53,20 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         //Movement Mechanics
-        //float horizontalAxis = Input.GetAxis("Horizontal");
-        //float verticalAxis = Input.GetAxis("Vertical");
-        
+        float horizontalAxis = Input.GetAxis("Horizontal");
+        float verticalAxis = Input.GetAxis("Vertical");
+
         var camera = Camera.main;
         var forward = camera.transform.forward;
         var right = camera.transform.right;
-        
+
         forward.y = 0f;
         right.y = 0f;
         forward.Normalize();
         right.Normalize();
-        //var moveDirection = forward * verticalAxis + right * horizontalAxis;
-        
-        //cc.velocity = (moveDirection * moveSpeed * Time.deltaTime);
+        var moveDirection = forward * verticalAxis + right * horizontalAxis;
 
-        
-
+        transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
 
         //trial run of new preview system
         if (previewing){
@@ -81,17 +76,6 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-
-
-        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        cc.Move(move * Time.deltaTime * moveSpeed);
-        //cc.Move(playerVelocity * Time.deltaTime);
-
-        if (move != Vector3.zero)
-        {
-            gameObject.transform.forward = move;
-        }
-
         
             //if (Input.GetKeyDown(KeyCode.Q)) //switched from escape key
             //{
