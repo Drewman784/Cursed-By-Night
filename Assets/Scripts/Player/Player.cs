@@ -157,6 +157,8 @@ public class Player : MonoBehaviour
                 }
 
             }
+        } else if(Input.GetKeyDown(KeyCode.V) && previewing){//rotate defense 
+             GetComponent<PlayerInventory>().SelectFromInventory().transform.Rotate(0,90f,0);
         }
 
         //UNALTERED VER OF ABOVE

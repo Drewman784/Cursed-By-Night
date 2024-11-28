@@ -136,7 +136,7 @@ public class DefenseBase : MonoBehaviour
                 } else{
                     Debug.Log("matcolors yes?");
                     for(int a = 0; a<visualElement.transform.childCount;a++){
-                    visualElement.transform.GetChild(a).GetComponent<Renderer>().material.color = Color.white;
+                   // visualElement.transform.GetChild(a).GetComponent<Renderer>().material.color = Color.white;
                     visualElement.transform.GetChild(a).GetComponent<MeshRenderer>().material = matColors[a];
                 }
                 }
@@ -181,8 +181,8 @@ public class DefenseBase : MonoBehaviour
                         Renderer r = this.GetComponent<Renderer>();
 		                Color colorOrig = r.material.color;
 		                //inactiveColor = new Color (255f, colorOrig.g, colorOrig.b, 0.5f);
-
-                        visualElement.transform.GetChild(a).GetComponent<Renderer>().material.color =  new Color (255f, 0, 0, 0.5f);
+                        visualElement.transform.GetChild(a).GetComponent<MeshRenderer>().material = inactiveMat;
+                        //visualElement.transform.GetChild(a).GetComponent<Renderer>().material.color =  new Color (255f, 0, 0, 0.5f);
                     }
                 }
 
@@ -195,8 +195,9 @@ public class DefenseBase : MonoBehaviour
                     visualElement.GetComponent<MeshRenderer>().material = damagedMat;
                 } else{
                     for(int a = 0; a<visualElement.transform.childCount;a++){
-                    visualElement.transform.GetChild(a).GetComponent<Renderer>().material.color = Color.grey;
-                }
+                        visualElement.transform.GetChild(a).GetComponent<MeshRenderer>().material = damagedMat;
+                        //visualElement.transform.GetChild(a).GetComponent<Renderer>().material.color = Color.grey;
+                    }
                 }
 
                 
