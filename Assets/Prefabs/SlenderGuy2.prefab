@@ -665,11 +665,16 @@ MonoBehaviour:
   damage: 10
   lookRadius: 17.4
   attackRadius: 5
+  MoveSpeed: 4
   eyeballDropCount: 1
   eyeballPrefab: {fileID: 1865504848378618904, guid: 9abbc9c8deaf84efa9612178184e7c9c,
     type: 3}
+  idleSounds: []
+  attackSound: {fileID: 0}
+  damageSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  hitMat: {fileID: 2100000, guid: da43f96083d044661a8e24468e5e24cb, type: 2}
   Target: {fileID: 0}
-  MoveSpeed: 4
 --- !u!195 &4883074949970654010
 NavMeshAgent:
   m_ObjectHideFlags: 0

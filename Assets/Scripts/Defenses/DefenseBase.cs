@@ -35,6 +35,8 @@ public class DefenseBase : MonoBehaviour
     
     private List<Material> matColors;
 
+    private bool enemyStillIn;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -64,6 +66,8 @@ public class DefenseBase : MonoBehaviour
         functioning = true;
         defHitbox.SetActive(false);
 
+        enemyStillIn = false;
+
         if(!defDetails.IsSimpleModel()){
             Debug.Log(nameOfDefense + visualElement.transform.childCount);
             for(int a = 0; a<visualElement.transform.childCount;a++){
@@ -89,7 +93,11 @@ public class DefenseBase : MonoBehaviour
             if(defct>=defDetails.GetTrapLength()){ //if it's time has run out
                 defHitbox.SetActive(false); //put the hitbox away
                 defct=0;
-                defUp=false;
+                defUp=false; 
+
+                /*if(enemyStillIn){//if enemy still attacking, put hitbox back up
+                    TriggerEffect();
+                }*/
             }
         }
     }
@@ -100,11 +108,16 @@ public class DefenseBase : MonoBehaviour
                 Debug.Log("p enter range");
 
         } else if(other.CompareTag("Enemy")){ //if enemy, trap springs
-            TriggerEffect(other.gameObject);
+            TriggerEffect();
             Debug.Log("found enemy def");
+            enemyStillIn = true;
         } else if (other.CompareTag("Attack")){ //if enemy attack, take damage
             RecieveDamage(1); //BASE TAKES DAMAGE - CURRENTLY SET TO 1
             Debug.Log(nameOfDefense + " CURRENT HEALTH: " + currentHealth);
+
+            if(enemyStillIn && !defUp){
+                TriggerEffect();
+            }
         }
     }
 
@@ -114,8 +127,11 @@ public class DefenseBase : MonoBehaviour
             //Debug.Log("exit range");
             DismissPopUp();
             GoTangible();
+        } else if(other.CompareTag("Enemy")){
+            enemyStillIn = false;
         }
     }
+
 
     public void TryToRepair(PlayerInventory inven){ //when the player tries to repair the defense
         Debug.Log("trying to repair");
@@ -145,7 +161,7 @@ public class DefenseBase : MonoBehaviour
         }
     }
 
-    private void TriggerEffect(GameObject enemy){ // trap effect
+    private void TriggerEffect(){ // trap effect
         if(functioning){
             defHitbox.SetActive(true);
             GetComponent<AudioSource>().PlayOneShot(defDetails.GetTrapSound());
@@ -220,6 +236,8 @@ public class DefenseBase : MonoBehaviour
         popupCanvas.SetActive(true);
         popupCanvas.GetComponentInChildren<TextMeshProUGUI>().text = "Press E to Pick Up";
         popup = true;
+
+        enemyStillIn = false;
     }
 
     public void DismissPopUp(){ //puts popup away

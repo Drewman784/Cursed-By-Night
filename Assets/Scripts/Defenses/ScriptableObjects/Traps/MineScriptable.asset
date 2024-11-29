@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad12c0d418adeac4bbce65f0fa9022b6, type: 3}
+  m_Name: MineScriptable
+  m_EditorClassIdentifier: 
+  currentHealth: 2
+  visualPrefab: {fileID: 0}
+  nameOfDefense: Mine
+  healthMax: 2
+  resourceRepairType: 
+  resourceRepairNum: 0
+  damagedMat: {fileID: 2100000, guid: 0836adb8b41044ddc97570e2281f39fb, type: 2}
+  repairedMat: {fileID: 2100000, guid: 1020eb93c3cd24eb2acc204a021c1485, type: 2}
+  inactiveMat: {fileID: 2100000, guid: 87dc018f3b6594a1eb19c5b3f3e2c137, type: 2}
+  moveable: 1
+  trapDamageDealt: 40
+  trapActiveLength: 5
+  repairSound: {fileID: 8300000, guid: 8713a926df7104bd29279154cbfb63cb, type: 3}
+  breakSound: {fileID: 8300000, guid: 45336427b9e124d5b94fc513473d60f3, type: 3}
+  trapSound: {fileID: 0}
+  testSimpleModel: 1

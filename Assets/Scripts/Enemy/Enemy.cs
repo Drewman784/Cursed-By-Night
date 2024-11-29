@@ -29,6 +29,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] AudioClip damageSound;
     [SerializeField] AudioClip deathSound;
 
+    [SerializeField] Material hitMat;
+
     private bool hitColorOn;
 
     private float hitCt;
@@ -39,10 +41,13 @@ public class Enemy : MonoBehaviour
     private GameObject player;
     private Player movement;
 
+    private Material regMat;
+
     private void Awake()
     {
         player = GameObject.Find("Player");
         movement = player.GetComponent<Player>();
+        regMat = gameObject.transform.GetChild(2).gameObject.GetComponent<SkinnedMeshRenderer>().material;
     }
 
     private void Start()
@@ -63,7 +68,8 @@ public class Enemy : MonoBehaviour
             hitCt += Time.deltaTime;
             if(hitCt >=1){
                 hitColorOn = false;
-                gameObject.transform.GetChild(2).gameObject.transform.GetComponent<Renderer>().material.color = Color.white;
+                //gameObject.transform.GetChild(2).gameObject.transform.GetComponent<Renderer>().material.color = Color.white;
+                gameObject.transform.GetChild(2).gameObject.GetComponent<SkinnedMeshRenderer>().material = regMat;
             }
         }
 
@@ -100,7 +106,8 @@ public class Enemy : MonoBehaviour
         Debug.Log("HIT FOR: " + amount);
         hitColorOn = true; //change color when hit
         hitCt = 0;
-        gameObject.transform.GetChild(2).gameObject.transform.GetComponent<Renderer>().material.color = Color.red;
+        //gameObject.transform.GetChild(2).gameObject.transform.GetComponent<Renderer>().material.color = Color.red;
+        gameObject.transform.GetChild(2).gameObject.GetComponent<SkinnedMeshRenderer>().material = hitMat;
 
         if (health <= 0f)
         {
