@@ -95,6 +95,13 @@ public class ShopUIController : MonoBehaviour
         switch(index){
             case 0: price = 2; break;
             case 1: price = 5; break;
+            case 2: price = 3; break;
+            case 3: price = 3; break;
+            case 4: price = 5; break;
+            case 5: price = 2; break;
+            case 6: price = 5; break;
+            case 7: price = 10; break;
+            case 8: price = 6; break;
             default: price = 1; break;
         }
         PlayerInventory inv = GameObject.Find("Player").GetComponent<PlayerInventory>();
