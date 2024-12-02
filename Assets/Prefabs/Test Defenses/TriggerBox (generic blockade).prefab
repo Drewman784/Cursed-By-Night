@@ -357,7 +357,7 @@ GameObject:
   - component: {fileID: 335610445845806328}
   - component: {fileID: -995322236755583157}
   - component: {fileID: -1606845129505130711}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TriggerBox (generic blockade)
   m_TagString: DefenseInteractable
   m_Icon: {fileID: 0}

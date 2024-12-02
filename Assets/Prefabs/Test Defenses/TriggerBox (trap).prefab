@@ -462,7 +462,7 @@ GameObject:
   - component: {fileID: 3335632818392014567}
   - component: {fileID: -144675490723660573}
   - component: {fileID: -6417747008594105700}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TriggerBox (trap)
   m_TagString: DefenseInteractable
   m_Icon: {fileID: 0}

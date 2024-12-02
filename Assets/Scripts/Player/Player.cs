@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
 
     public bool dayCycle;
 
-    private bool objPreviewed;
+    //private bool objPreviewed;
 
     private bool inMenu;
 
@@ -118,7 +118,7 @@ public class Player : MonoBehaviour
                      defenseInteractableObject.gameObject.SetActive(false); // make object inactive
                      defenseInteractable = false; //clear object from current possible interactions
                      defenseInteractableObject = null;
-                     objPreviewed = false;
+                     //objPreviewed = false;
 
                 }
                 
@@ -148,7 +148,7 @@ public class Player : MonoBehaviour
                     GetComponent<PlayerInventory>().SelectFromInventory().GetComponentInChildren<BoxCollider>().enabled = true;
                     GetComponent<PlayerInventory>().PlayPlacementSound(GetComponent<PlayerInventory>().SelectFromInventory());
                     GetComponent<PlayerInventory>().RemoveFromInventory();
-                    objPreviewed =false;
+                    //objPreviewed =false;
                     //Debug.Log("placing now");
                     PlaceObject();
                     previewing = false;
@@ -198,7 +198,7 @@ public class Player : MonoBehaviour
     {
         defenseInteractableObject = defObj;
         defenseInteractable = true;
-        Debug.Log("entered range");
+        //Debug.Log("entered range");
         if(dayCycle){
             if(defObj.IsMoveable()){ //check if immobile object such as window or door
                 defObj.MovePopUp();
@@ -254,10 +254,10 @@ public class Player : MonoBehaviour
                     //Debug.Log("height: "+ h + " ground at: " + hitData.point.y);
                     toPlace.transform.position = hitData.point + new Vector3(0,h, 0);
                     //Debug.Log("placed at: " + toPlace.transform.position);
-                    objPreviewed = true;
+                    //objPreviewed = true;
                                return true;
                 } else{
-                    Debug.Log("raycast failed: tag - "+ hitData.collider.gameObject.tag);
+                    //Debug.Log("raycast failed: tag - "+ hitData.collider.gameObject.tag);
                      return false;
                 }
      

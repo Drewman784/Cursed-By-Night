@@ -73,7 +73,7 @@ public class WeaponSwitching : MonoBehaviour
                 case 1: gunName ="Rifle"; break;
                 case 2: gunName ="Machine Gun"; break;
                 case 3: gunName ="Shotgun"; break;
-                //case 4: gunName ="Melee"; break;
+                case 4: gunName ="Melee"; break;
                 default: gunName = "error"; break;
             }
             gunUI.text = gunName;

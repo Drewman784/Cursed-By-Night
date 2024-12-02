@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4105212352221021732}
   - component: {fileID: 1615992281776479797}
   - component: {fileID: 7398629146585170901}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TriggerBox (Mine)
   m_TagString: DefenseInteractable
   m_Icon: {fileID: 0}

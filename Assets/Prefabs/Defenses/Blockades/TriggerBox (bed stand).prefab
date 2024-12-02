@@ -252,7 +252,7 @@ GameObject:
   - component: {fileID: 3184432627966389730}
   - component: {fileID: 3548822227908843233}
   - component: {fileID: 5753896305113645904}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TriggerBox (bed stand)
   m_TagString: DefenseInteractable
   m_Icon: {fileID: 0}

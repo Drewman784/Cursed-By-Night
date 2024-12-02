@@ -684,7 +684,7 @@ GameObject:
   - component: {fileID: 1328952453378812313}
   - component: {fileID: 4874758085042007013}
   - component: {fileID: 114220659373797727}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TriggerBox (Spike Wall)
   m_TagString: DefenseInteractable
   m_Icon: {fileID: 0}

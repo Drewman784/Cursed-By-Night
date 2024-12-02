@@ -69,7 +69,7 @@ public class DefenseBase : MonoBehaviour
         enemyStillIn = false;
 
         if(!defDetails.IsSimpleModel()){
-            Debug.Log(nameOfDefense + visualElement.transform.childCount);
+            //Debug.Log(nameOfDefense + visualElement.transform.childCount);
             for(int a = 0; a<visualElement.transform.childCount;a++){
                 matColors.Add(visualElement.transform.GetChild(a).GetComponent<MeshRenderer>().material);
             }
@@ -105,7 +105,7 @@ public class DefenseBase : MonoBehaviour
 
         if(other.CompareTag("Player")){ //if player, give script info to move/use obj
             other.GetComponent<Player>().EnterDefenseRange(this);
-                Debug.Log("p enter range");
+                //Debug.Log("p enter range");
 
         } else if(other.CompareTag("Enemy")){ //if enemy, trap springs
             TriggerEffect();
@@ -232,7 +232,7 @@ public class DefenseBase : MonoBehaviour
     }
 
     public void MovePopUp(){ //brings up a popup with information about inventory
-    Debug.Log("pop");
+        //Debug.Log("pop");
         popupCanvas.SetActive(true);
         popupCanvas.GetComponentInChildren<TextMeshProUGUI>().text = "Press E to Pick Up";
         popup = true;

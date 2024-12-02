@@ -389,7 +389,7 @@ GameObject:
   - component: {fileID: 7691568850860290822}
   - component: {fileID: 823278619715444787}
   - component: {fileID: 9146604132804046687}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TriggerBox (lamp)
   m_TagString: DefenseInteractable
   m_Icon: {fileID: 0}

@@ -858,7 +858,7 @@ GameObject:
   - component: {fileID: 9160330070403536586}
   - component: {fileID: 9052718597140859559}
   - component: {fileID: 8716119137637164400}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TriggerBox (fridge)
   m_TagString: DefenseInteractable
   m_Icon: {fileID: 0}

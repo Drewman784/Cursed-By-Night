@@ -453,7 +453,7 @@ GameObject:
   - component: {fileID: 1169558379565589343}
   - component: {fileID: 8327024189826365849}
   - component: {fileID: -1692099654138776788}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TriggerBox (chair)
   m_TagString: DefenseInteractable
   m_Icon: {fileID: 0}

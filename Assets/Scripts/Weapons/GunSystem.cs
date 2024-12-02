@@ -49,8 +49,12 @@ public class GunSystem : MonoBehaviour
         if (allowButtonHold) shooting = Input.GetKey(KeyCode.Mouse0);
         else shooting = Input.GetKeyDown(KeyCode.Mouse0);
 
-        if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading) Reload();
+        if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading) {
+            //Debug.Log("reload called");
+            Reload();
+        }
 
+           
         // Check if shooting is attempted when there are no bullets left
         if (readyToShoot && shooting && !reloading)
         {
@@ -80,23 +84,27 @@ public class GunSystem : MonoBehaviour
         //float y = Random.Range(-spread, spread);
 
         //Calculate Direction
-        Vector3 direction = fpsCam.transform.forward; //+ new Vector3(x, y, 0);
+        //Vector3 direction = fpsCam.transform.forward; //+ new Vector3(x, y, 0);
+        Vector3 direction = fpsCam.transform.GetChild(1).gameObject.transform.forward;
 
         // Single Raycast with Enemy Layer Mask
-        if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, range, whatIsEnemy))
+        //if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, range, whatIsEnemy))
+        if (Physics.Raycast(fpsCam.transform.GetChild(1).gameObject.transform.position, direction, out rayHit, range, whatIsEnemy))
         {
-            Debug.Log(rayHit.collider.name);
+            Debug.Log("GUN: " + rayHit.collider.name + " " + rayHit.collider.tag);
 
             Enemy target = rayHit.collider.GetComponent<Enemy>();
             if (target != null)
             {
                 // Apply Damage
                 target.TakeDamage(damage);
-                Debug.DrawLine(CamTransform.position, rayHit.point, Color.green, 1f);
+                //Debug.DrawLine(CamTransform.position, rayHit.point, Color.green, 1f);
+                Debug.DrawLine(CamTransform.GetChild(1).transform.position, rayHit.point, Color.green, 1f);
             }
             else
             {
-                Debug.DrawRay(CamTransform.position, CamTransform.forward * 100f, Color.red, 1f);
+                //Debug.DrawRay(CamTransform.position, CamTransform.forward * 100f, Color.red, 1f);
+                Debug.DrawRay(CamTransform.GetChild(1).transform.position, CamTransform.forward * 100f, Color.red, 1f);
             }
         }
 
@@ -116,14 +124,18 @@ public class GunSystem : MonoBehaviour
 
     private void Reload()
     {
+        //Debug.Log("rStart");
         reloading = true;
         Invoke("ReloadFinished", reloadTime);
     }
 
     private void ReloadFinished()
     {
+        //Debug.Log("rFin");
         bulletsLeft = magazineSize;
         reloading = false;
+
+        UpdateAmmo();
     }
 
     public void UpdateAmmo(){ //updates display of how many bullets left

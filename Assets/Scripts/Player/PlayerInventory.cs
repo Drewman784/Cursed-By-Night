@@ -198,7 +198,7 @@ public class PlayerInventory : MonoBehaviour
         LootText.SetText($"Eyes Collected: {ReallootCurrency} ");
         SalvageText.SetText($"Salvage Collected: {Realsalvage} ");
 
-        Debug.Log("inv: "+ heldDefenses.Count());
+        //Debug.Log("inv: "+ heldDefenses.Count());
 
         if(!InventoryIsEmpty()){
             for(int a = 0; a < heldDefenses.Count(); a++){ //show used inventory panels

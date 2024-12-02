@@ -255,7 +255,7 @@ GameObject:
   - component: {fileID: 5417844590778603915}
   - component: {fileID: 2805130907522859956}
   - component: {fileID: -4753226679576591147}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TriggerBox (window)
   m_TagString: DefenseInteractable
   m_Icon: {fileID: 0}

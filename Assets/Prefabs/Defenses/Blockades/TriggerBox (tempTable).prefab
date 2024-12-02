@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 2927464106639234353}
   - component: {fileID: -4046228920290181780}
   - component: {fileID: -7348430301326600241}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TriggerBox (tempTable)
   m_TagString: DefenseInteractable
   m_Icon: {fileID: 0}

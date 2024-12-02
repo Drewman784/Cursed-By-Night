@@ -46,7 +46,7 @@ public class PlayerHealth : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other){ //I THINK WE SHOULD USE THIS ONE
-        Debug.Log ("Hit" + other.gameObject.tag);
+        //Debug.Log ("Hit" + other.gameObject.tag);
         if (other.gameObject.CompareTag("Attack"))
         {
             player_hp -= Zombie_Damage;
