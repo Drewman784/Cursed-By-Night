@@ -523,7 +523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6530732b1d43bd049b043fa9effbc28f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentTime: 5.69
+  currentTime: 5.79
   timeSpeed: 0.1
   currentTimeString: 
   sunLight: {fileID: 1350535212}
@@ -614,8 +614,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  isDay: 0
-  sunActive: 0
+  isDay: 1
+  sunActive: 1
   moonActive: 1
   moonLight: {fileID: 976017883}
   moonLatitude: 40
@@ -7115,6 +7115,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 578118117}
+  - component: {fileID: 578118118}
   m_Layer: 0
   m_Name: Fence (Player House)
   m_TagString: Untagged
@@ -7158,6 +7159,25 @@ Transform:
   - {fileID: 1518232932}
   m_Father: {fileID: 1544414016}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &578118118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578118116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 1
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &604185808 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f7db333dce0abfa47a23a3a67aabd4ec,
@@ -9407,6 +9427,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1431588833}
+    - targetCorrespondingSourceObject: {fileID: -4620282718447106903, guid: b5f2878e2254df748955251465a57235,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1431588837}
     - targetCorrespondingSourceObject: {fileID: -1697922934123182030, guid: b5f2878e2254df748955251465a57235,
         type: 3}
       insertIndex: -1
@@ -11707,7 +11731,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 976017880}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.42227042, y: 0.9055617, z: -0.017144702, w: 0.036766928}
+  m_LocalRotation: {x: 0.42245862, y: 0.9059654, z: -0.011615883, w: 0.02491034}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -11854,7 +11878,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -11891,7 +11915,7 @@ Light:
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 0.5, y: 0.5}
   m_BounceIntensity: 1
-  m_ColorTemperature: 15027.649
+  m_ColorTemperature: 15013.189
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
@@ -16605,7 +16629,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1350535209}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.023268742, y: -0.033231206, z: -0.57310426, w: 0.81847763}
+  m_LocalRotation: {x: -0.015765047, y: -0.02251482, z: -0.5733598, w: 0.8188426}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -16624,7 +16648,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 2961.9595
+  m_Intensity: 3014.8862
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -16746,13 +16770,13 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2961.9595
+  m_Intensity: 3014.8862
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -16789,7 +16813,7 @@ Light:
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 0.5, y: 0.5}
   m_BounceIntensity: 1
-  m_ColorTemperature: 3270.797
+  m_ColorTemperature: 3342.3308
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
@@ -17983,6 +18007,25 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4545423930167495100, guid: b5f2878e2254df748955251465a57235, type: 3}
+--- !u!114 &1431588837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745125231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 1
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1001 &1437607772
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27478,6 +27521,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TriggerBox (trap)
       objectReference: {fileID: 0}
+    - target: {fileID: 7027397143524744530, guid: bf4d1e0b0943549179a67462aecc66f6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -28834,6 +28882,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TriggerBox (generic blockade)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7867657231011729833, guid: 8e017218dc04640309e0b4b192037982,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
