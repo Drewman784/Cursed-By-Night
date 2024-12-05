@@ -27,10 +27,14 @@ public class GunSystem : MonoBehaviour
     public TextMeshProUGUI text;
 
     //Audio
-    public AudioSource outOfAmmoSound; // Assign an AudioSource in the Inspector
+    private AudioSource sc; // Assign an AudioSource in the Inspector
+
+    public AudioClip outOfAmmoSound; //play when out of ammo
+    public AudioClip gunShotSound; //play when shooting
 
     private void Awake()
     {
+        sc = GetComponent<AudioSource>();
         bulletsLeft = magazineSize;
         readyToShoot = true;
         UpdateAmmo();
@@ -66,11 +70,12 @@ public class GunSystem : MonoBehaviour
             }
             else
             {
-                // Play out-of-ammo sound
+                sc.PlayOneShot(outOfAmmoSound);
+                /** Play out-of-ammo sound
                 if (outOfAmmoSound != null && !outOfAmmoSound.isPlaying)
                 {
                     outOfAmmoSound.Play();
-                }
+                }*/
             }
         }
     }
@@ -110,6 +115,8 @@ public class GunSystem : MonoBehaviour
 
         bulletsLeft--;
         bulletsShot--;
+
+        sc.PlayOneShot(gunShotSound);
 
         Invoke("ResetShot", timeBetweenShooting);
 
