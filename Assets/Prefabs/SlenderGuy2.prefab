@@ -661,7 +661,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20d313fb5a018ae49876d771bfe1ee53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 20
+  health: 100
   damage: 10
   lookRadius: 17.4
   attackRadius: 5
