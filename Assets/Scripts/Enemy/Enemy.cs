@@ -42,6 +42,14 @@ public class Enemy : MonoBehaviour
     private Player movement;
 
     private Material regMat;
+    private bool immobile;
+
+    private float noiseCt;
+
+    public int soundIntervalRangeStart;
+    public int soundIntervalRangeEnd;
+
+    private int soundInterval;
 
     private void Awake()
     {
@@ -58,6 +66,9 @@ public class Enemy : MonoBehaviour
         //hit recoil 
         hitCt = 0;
         hitColorOn = false;
+        immobile = false;
+        noiseCt = 0;
+        soundInterval = Random.Range(soundIntervalRangeStart,soundIntervalRangeEnd);
     }
 
     private void Update()
@@ -71,6 +82,13 @@ public class Enemy : MonoBehaviour
                 //gameObject.transform.GetChild(2).gameObject.transform.GetComponent<Renderer>().material.color = Color.white;
                 gameObject.transform.GetChild(2).gameObject.GetComponent<SkinnedMeshRenderer>().material = regMat;
             }
+        }
+
+        noiseCt+=Time.deltaTime;
+        if(noiseCt>=soundInterval){ // play one of the 'idle' sounds every given interval
+            noiseCt = 0;
+            int s = Random.Range(0,idleSounds.Count);
+            GetComponent<AudioSource>().PlayOneShot(idleSounds[s]);
         }
 
 
@@ -88,9 +106,12 @@ public class Enemy : MonoBehaviour
         //look at target
         transform.LookAt(Target.position);
 
-        // Movement towards the target
-        Vector3 moveDir = (Target.position - transform.position).normalized;
-        transform.position += (moveDir * MoveSpeed * Time.deltaTime);
+        if(!immobile){
+            // Movement towards the target
+            Vector3 moveDir = (Target.position - transform.position).normalized;
+            transform.position += (moveDir * MoveSpeed * Time.deltaTime);
+        }
+
     }
 
     private void OnDrawGizmosSelected()
@@ -108,6 +129,10 @@ public class Enemy : MonoBehaviour
         hitCt = 0;
         //gameObject.transform.GetChild(2).gameObject.transform.GetComponent<Renderer>().material.color = Color.red;
         gameObject.transform.GetChild(2).gameObject.GetComponent<SkinnedMeshRenderer>().material = hitMat;
+
+        GetComponent<Animator>().SetTrigger("Hit"); // trigger hit animation
+        GetComponent<AudioSource>().PlayOneShot(damageSound);
+        immobile = true;
 
         if (health <= 0f)
         {
@@ -129,7 +154,7 @@ public class Enemy : MonoBehaviour
     private void OnCollisionEnter(Collision other) {
         if(other.gameObject.CompareTag("DefenseInteractable")){
             Debug.Log("enemy collision w def");
-            GetComponent<Animator>().SetTrigger("Attack");
+            //GetComponent<Animator>().SetTrigger("Attack");
         }
     }
 
@@ -140,5 +165,16 @@ public class Enemy : MonoBehaviour
             Debug.Log("enemy trigger w def");
             GetComponent<Animator>().SetTrigger("Attack");
         }*/
+    }
+
+    private void BeginRecoil(){
+        immobile = true;
+        gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+    }
+
+    public void RecoilDone(){ //animation calls this, lets enemy move again
+        immobile = false;
+        gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+        gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
     }
 }
