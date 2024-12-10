@@ -13,6 +13,7 @@ using UnityEditor;
 
 public class Player : MonoBehaviour
 {
+    [Header("Movement")]
     public float moveSpeed;
     private float velocity;
     public float normalmoveSpeed;
@@ -35,8 +36,14 @@ public class Player : MonoBehaviour
 
     private bool previewing;
 
+    //[Header("Weapon (Controls)")]
+    //[SerializeField] List<GameObject> gunList; //this is for enabling/disabling shooting in menus
+    private WeaponSwitching weaponSw;
+
     void Start()
     {
+        
+        weaponSw = transform.GetChild(0).transform.GetChild(1).GetComponent<WeaponSwitching>();
         //rb = GetComponent<Rigidbody>();
         cc = gameObject.GetComponent<CharacterController>();
         sprinting = false;
@@ -48,6 +55,7 @@ public class Player : MonoBehaviour
         defenseInteractableObject = null;
 
         SetMenu(false);
+
     }
 
     void FixedUpdate()
@@ -297,5 +305,20 @@ public class Player : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
+
+        Debug.Log("menu state: " + menu);
+        weaponSw.GiveWeaponMenuState(menu);
+        /*
+       foreach(GameObject g in gunList){ //enable/disable shooting
+            g.GetComponent<Pistol>().SetMenu(menu);
+             if(g.isActive() == false){
+                g.SetActive(true);
+                g.GetComponent<Pistol>().SetMenu(menu);
+                g.SetActive(false);
+            } else{
+                g.SetActive(true);
+                g.GetComponent<Pistol>().SetMenu(menu);
+            }
+        }*/
     }
 }

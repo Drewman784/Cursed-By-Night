@@ -18,7 +18,7 @@ public class SceneSwitch : MonoBehaviour
 
     public void optionsButton()
     {
-        SceneManager.LoadScene("options");
+       // SceneManager.LoadScene("options");
     }
 
     //quit applicatiomn

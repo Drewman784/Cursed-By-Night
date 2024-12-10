@@ -78,4 +78,9 @@ public class WeaponSwitching : MonoBehaviour
             }
             gunUI.text = gunName;
     }
+
+    public void GiveWeaponMenuState(bool menu){
+        Debug.Log("wp: " + menu);
+        transform.GetChild(selectedWeapon).GetComponent<GunSystem>().SetMenu(menu);
+    }
 }

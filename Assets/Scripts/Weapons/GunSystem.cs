@@ -32,12 +32,15 @@ public class GunSystem : MonoBehaviour
     public AudioClip outOfAmmoSound; //play when out of ammo
     public AudioClip gunShotSound; //play when shooting
 
+    private bool inMenu;
+
     private void Awake()
     {
         sc = GetComponent<AudioSource>();
         bulletsLeft = magazineSize;
         readyToShoot = true;
         UpdateAmmo();
+        inMenu = false;
     }
 
     private void Update()
@@ -60,7 +63,7 @@ public class GunSystem : MonoBehaviour
 
            
         // Check if shooting is attempted when there are no bullets left
-        if (readyToShoot && shooting && !reloading)
+        if (readyToShoot && shooting && !reloading && !inMenu)
         {
             if (bulletsLeft > 0)
             {
@@ -88,7 +91,8 @@ public class GunSystem : MonoBehaviour
         //float x = Random.Range(-spread, spread);
         //float y = Random.Range(-spread, spread);
 
-        //Calculate Direction
+  
+       //Calculate Direction
         //Vector3 direction = fpsCam.transform.forward; //+ new Vector3(x, y, 0);
         Vector3 direction = fpsCam.transform.GetChild(1).gameObject.transform.forward;
 
@@ -122,6 +126,8 @@ public class GunSystem : MonoBehaviour
 
         if (bulletsShot > 0 && bulletsLeft > 0)
             Invoke("Shoot", timeBetweenShots);
+        
+ 
     }
 
     private void ResetShot()
@@ -152,5 +158,10 @@ public class GunSystem : MonoBehaviour
 
     public void HideAmmo(){ //hides ammo ui (for melee)
         text.gameObject.SetActive(false);
+    }
+
+    public void SetMenu(bool menu){ //accessed from player class, keeps gun from shooting when player is in menu
+        inMenu = menu;
+        Debug.Log("gun ->" + inMenu);
     }
 }
