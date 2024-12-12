@@ -115,7 +115,8 @@ public class ShopUIController : MonoBehaviour
             if(inv.InventoryIsFull()){ //inventory is full  
                 CloseShopScreen(); //close shop window
             } else{ //inventory not full
-                inv.AddToInventory(g); //adds item to inventory
+                GameObject.Find("Player").gameObject.GetComponent<Player>().ItemFromShop(g);
+                //inv.AddToInventory(g); //adds item to inventory
                 UpdateShopScreen(); //update screen
             }
         }
