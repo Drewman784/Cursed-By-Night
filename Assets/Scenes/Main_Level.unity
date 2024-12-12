@@ -524,7 +524,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6530732b1d43bd049b043fa9effbc28f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentTime: 18.69
+  currentTime: 5.69
   timeSpeed: 0.1
   currentTimeString: 
   sunLight: {fileID: 1350535212}
@@ -8459,8 +8459,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 250, y: -175}
-  m_SizeDelta: {x: 400, y: 50}
+  m_AnchoredPosition: {x: 325, y: -175}
+  m_SizeDelta: {x: 550, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &568118521
 MonoBehaviour:
@@ -8510,8 +8510,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 43
+  m_fontSizeBase: 43
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -9877,8 +9877,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 250, y: -100}
-  m_SizeDelta: {x: 400, y: 50}
+  m_AnchoredPosition: {x: 275, y: -100}
+  m_SizeDelta: {x: 450, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &655149277
 MonoBehaviour:
@@ -9928,8 +9928,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 43
+  m_fontSizeBase: 43
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -13235,8 +13235,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 175, y: 100}
-  m_SizeDelta: {x: 250, y: 50}
+  m_AnchoredPosition: {x: 200, y: 100}
+  m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &901704037
 MonoBehaviour:
@@ -13286,8 +13286,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 43
+  m_fontSizeBase: 43
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -14137,8 +14137,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 200, y: 175}
-  m_SizeDelta: {x: 300, y: 50}
+  m_AnchoredPosition: {x: 250, y: 175}
+  m_SizeDelta: {x: 400, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &959377071
 MonoBehaviour:
@@ -14188,8 +14188,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 43
+  m_fontSizeBase: 43
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -14298,7 +14298,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 976017880}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.038119365, y: -0.081747234, z: 0.42089564, w: -0.9026136}
+  m_LocalRotation: {x: 0.42227042, y: 0.9055617, z: -0.017144702, w: 0.036766928}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -14482,7 +14482,7 @@ Light:
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 0.5, y: 0.5}
   m_BounceIntensity: 1
-  m_ColorTemperature: 15131.724
+  m_ColorTemperature: 15027.649
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
@@ -19973,7 +19973,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1350535209}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.57123846, y: 0.81581306, z: 0.0517355, w: -0.073885955}
+  m_LocalRotation: {x: -0.023268742, y: -0.033231206, z: -0.57310426, w: 0.81847763}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -19992,7 +19992,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 2758.3098
+  m_Intensity: 2961.9595
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -20114,7 +20114,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2758.3098
+  m_Intensity: 2961.9595
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -20157,7 +20157,7 @@ Light:
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 0.5, y: 0.5}
   m_BounceIntensity: 1
-  m_ColorTemperature: 3061.176
+  m_ColorTemperature: 3270.797
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0

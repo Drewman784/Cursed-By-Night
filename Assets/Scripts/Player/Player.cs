@@ -43,7 +43,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         inMenu = false;
-        
+
         weaponSw = transform.GetChild(0).transform.GetChild(1).GetComponent<WeaponSwitching>();
         //rb = GetComponent<Rigidbody>();
         cc = gameObject.GetComponent<CharacterController>();
@@ -325,5 +325,15 @@ public class Player : MonoBehaviour
                 g.GetComponent<Pistol>().SetMenu(menu);
             }
         }*/
+    }
+
+    //player buys object, goes into their inventory
+    public void ItemFromShop(GameObject newItem){
+                     GetComponent<PlayerInventory>().AddToInventory(newItem); //add to inventory
+                     GetComponent<PlayerInventory>().PlayPickupSound(GetComponent<PlayerInventory>().SelectFromInventory());
+                     newItem.GetComponent<BoxCollider>().enabled = false;
+                     newItem.GetComponentInChildren<BoxCollider>().enabled = false;
+                    // newItem.GetComponent<DefenseBase>().DismissPopUp();
+                     newItem.gameObject.SetActive(false); // make object inactive
     }
 }
