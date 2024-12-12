@@ -47,6 +47,7 @@ public class PauseMenuController : MonoBehaviour
     }
 
     public void QuitToMenu(){
+        ExitPauseMenu();
         SceneManager.LoadScene("Main_Menu");
     }
 }

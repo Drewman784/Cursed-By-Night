@@ -42,6 +42,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        inMenu = false;
         
         weaponSw = transform.GetChild(0).transform.GetChild(1).GetComponent<WeaponSwitching>();
         //rb = GetComponent<Rigidbody>();
@@ -296,6 +297,10 @@ public class Player : MonoBehaviour
     }
 
     public void SetMenu(bool menu){ //if the player is in menu, disable movement + enable mouse
+
+    if(weaponSw == null){
+        weaponSw = transform.GetChild(0).transform.GetChild(1).GetComponent<WeaponSwitching>();
+    }
         inMenu = menu;
 
         if(inMenu){
