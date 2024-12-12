@@ -690,8 +690,9 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: bcdad72d6c205d246a5002944b4d7d9d, type: 2}
+  m_sharedMaterial: {fileID: 3476027932045701415, guid: bcdad72d6c205d246a5002944b4d7d9d,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -715,8 +716,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 45
+  m_fontSizeBase: 45
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1389,7 +1390,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &555578854
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2051,10 +2052,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1624618911}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 400, y: -350}
+  m_SizeDelta: {x: 700, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1026720470
 MonoBehaviour:
@@ -2078,12 +2079,13 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Sound: \nhttps://pixabay.com/sound-effects/night-ambience-17064/\r\n\rhttps://pixabay.com/sound-effects/forest-ambiance-30746/\r\n\rhttps://pixabay.com/music/solo-piano-spooky-horror-piano-251201/\r\n\rhttps://soundbible.com/1998-Gun-Fire.html\r\n\rhttps://soundbible.com/992-Right-Cross.html\r\n\rhttps://soundbible.com/1547-M1-Garand-Single.html
     https://freesound.org/people/Huminaatio/sounds/189281/ \n https://freesound.org/people/Breviceps/sounds/445995/\r\n
-    https://freesound.org/people/mrickey13/sounds/515618/\r\n https://freesound.org/people/zaneclampett/sounds/263619/\r\n
+    https://freesound.org/people/mrickey13/sounds/515618/\r\nhttps://freesound.org/people/zaneclampett/sounds/263619/\r\n
     https://soundbible.com/2028-Hammering.html\n\rhttps://freesound.org/people/robbeman/sounds/495644/\r\nhttps://freesound.org/people/The-Sacha-Rush/sounds/400116/\r\nhttps://freesound.org/people/Alex-Fullam/sounds/553886/\r\n
     https://soundbible.com/1507-Chopping-Wood.html  https://freesound.org/people/kyles/sounds/453972/\nhttps://freesound.org/people/greenvwbeetle/sounds/244652/"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: bcdad72d6c205d246a5002944b4d7d9d, type: 2}
+  m_sharedMaterial: {fileID: 3476027932045701415, guid: bcdad72d6c205d246a5002944b4d7d9d,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2107,8 +2109,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 22.5
+  m_fontSizeBase: 22.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2613,8 +2615,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Back to Menu
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: bcdad72d6c205d246a5002944b4d7d9d, type: 2}
+  m_sharedMaterial: {fileID: 3476027932045701415, guid: bcdad72d6c205d246a5002944b4d7d9d,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2720,10 +2723,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1624618911}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1110, y: -350}
+  m_SizeDelta: {x: 700, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1488468020
 MonoBehaviour:
@@ -2750,10 +2753,21 @@ MonoBehaviour:
 
     Skybox:
 
-    https://assetstore.unity.com/packages/2d/textures-materials/milky-way-skybox-94001'
+    https://assetstore.unity.com/packages/2d/textures-materials/milky-way-skybox-94001
+
+
+    Animations:
+
+    https://www.mixamo.com
+
+
+    Font:
+
+    https://www.dafont.com/jmh-typewriter.font'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: bcdad72d6c205d246a5002944b4d7d9d, type: 2}
+  m_sharedMaterial: {fileID: 3476027932045701415, guid: bcdad72d6c205d246a5002944b4d7d9d,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2921,7 +2935,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1624618911
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3139,8 +3153,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Team
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: bcdad72d6c205d246a5002944b4d7d9d, type: 2}
+  m_sharedMaterial: {fileID: 3476027932045701415, guid: bcdad72d6c205d246a5002944b4d7d9d,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3273,8 +3288,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Assets
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: bcdad72d6c205d246a5002944b4d7d9d, type: 2}
+  m_sharedMaterial: {fileID: 3476027932045701415, guid: bcdad72d6c205d246a5002944b4d7d9d,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
