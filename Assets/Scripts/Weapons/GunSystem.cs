@@ -34,13 +34,15 @@ public class GunSystem : MonoBehaviour
 
     private bool inMenu;
 
+    [SerializeField] public string gunName;
+
     private void Awake()
     {
         sc = GetComponent<AudioSource>();
         bulletsLeft = magazineSize;
         readyToShoot = true;
-        UpdateAmmo();
         inMenu = false;
+        UpdateAmmo();
     }
 
     private void Update()
@@ -152,8 +154,11 @@ public class GunSystem : MonoBehaviour
     }
 
     public void UpdateAmmo(){ //updates display of how many bullets left
-        text.gameObject.SetActive(true);
-        text.SetText(bulletsLeft + " / " + magazineSize);
+        if(text != null){
+                text.gameObject.SetActive(true);
+                text.SetText(bulletsLeft + " / " + magazineSize);
+    }
+
     }
 
     public void HideAmmo(){ //hides ammo ui (for melee)

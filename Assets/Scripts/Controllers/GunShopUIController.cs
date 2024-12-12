@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class ShopUIController : MonoBehaviour
+public class GunShopUIController : MonoBehaviour
 {
     public bool inRange; // is the player in range of the shopkeeper
     private bool shopScreenOpen; // is the shop window open
@@ -15,6 +15,8 @@ public class ShopUIController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI LootCurrencyText;
 
     [SerializeField] private List<GameObject> soldItems;
+
+    [SerializeField] List<GameObject> ButtonsInOrder;
     // Start is called before the first frame update
 
     private bool day;
@@ -60,7 +62,9 @@ public class ShopUIController : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) { //if player enters range
+        Debug.Log("enter " + other.gameObject.tag);
         if(other.gameObject.CompareTag("Player") && day){
+            Debug.Log("check");
             inRange = true;
             popupCanvas.SetActive(true);
         }
@@ -92,35 +96,28 @@ public class ShopUIController : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    public void BuyItem(int index){ //purchase an item from the shop
+    public void BuyItem(int index){ //purchase a weapon from the shop
         int price;
         switch(index){
-            case 0: price = 2; break;
-            case 1: price = 5; break;
-            case 2: price = 3; break;
-            case 3: price = 3; break;
-            case 4: price = 5; break;
-            case 5: price = 2; break;
-            case 6: price = 5; break;
-            case 7: price = 10; break;
-            case 8: price = 6; break;
-            case 9: price = 4; break;
+            case 0: price = 15; break;
+            case 1: price = 30; break;
+            case 2: price = 45; break;
             default: price = 1; break;
         }
         PlayerInventory inv = GameObject.Find("Player").GetComponent<PlayerInventory>();
 
         if(inv.GetLootCurrency()>=price){ //if player has enough money
-            GameObject g = Instantiate(soldItems[index]); //spawn item outside shop
-            g.transform.position = transform.position + new Vector3(0,0,3);
+            GameObject g = Instantiate(soldItems[index]); //spawn weapon outside shop
+
+            //set position
+            g.transform.position = GameObject.Find("Player").transform.GetChild(0).transform.GetChild(1).transform.GetChild(0).transform.position;
+            g.transform.rotation = GameObject.Find("Player").transform.GetChild(0).transform.GetChild(1).transform.GetChild(0).transform.rotation;
+            g.transform.parent = GameObject.Find("Player").transform.GetChild(0).transform.GetChild(1).transform;
+            GameObject.Find("Player").transform.GetChild(0).transform.GetChild(1).GetComponent<WeaponSwitching>().GiveWeapon();
             inv.SetLootCurrency(inv.GetLootCurrency() - price); //pay price
 
-            if(inv.InventoryIsFull()){ //inventory is full  
-                CloseShopScreen(); //close shop window
-            } else{ //inventory not full
-                GameObject.Find("Player").gameObject.GetComponent<Player>().ItemFromShop(g);
-                //inv.AddToInventory(g); //adds item to inventory
-                UpdateShopScreen(); //update screen
-            }
+            ButtonsInOrder[index].SetActive(false);
+            UpdateShopScreen();
         }
     }
 

@@ -5,10 +5,12 @@ public class WeaponSwitching : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI gunUI;
     public int selectedWeapon = 0;
+    private bool currMenu;
 
     
     void Start()
     {
+        currMenu =false;
         SelectWeapon();
     }
     void Update()
@@ -68,21 +70,46 @@ public class WeaponSwitching : MonoBehaviour
             
             //updates ui to display which gun is selected
             string gunName = ""; 
-            switch(selectedWeapon){
+            /*switch(selectedWeapon){
                 case 0: gunName ="1911 Model"; break;
                 case 1: gunName ="Rifle"; break;
                 case 2: gunName ="Machine Gun"; break;
                 case 3: gunName ="Shotgun"; break;
                 case 4: gunName ="Melee"; break;
                 default: gunName = "error"; break;
-            }
+            }*/
+
+            gunName = transform.GetChild(selectedWeapon).GetComponent<GunSystem>().gunName;
             gunUI.text = gunName;
+            GiveWeaponMenuState(currMenu);
     }
 
     public void GiveWeaponMenuState(bool menu){
+        currMenu = menu;
         Debug.Log("wp: " + menu);
         if(selectedWeapon!=4){
             transform.GetChild(selectedWeapon).GetComponent<GunSystem>().SetMenu(menu);
         }
+    }
+
+    public void GiveWeapon(){ //called when new weapon aquired
+        int index = transform.childCount-1;
+        GunSystem newG = transform.GetChild(index).GetComponent<GunSystem>();
+        GunSystem refG = transform.GetChild(0).GetComponent<GunSystem>();
+
+        newG.fpsCam = refG.fpsCam;
+        newG.attackPoint = refG.attackPoint;
+        newG.rayHit = refG.rayHit;
+        newG.whatIsEnemy = refG.whatIsEnemy;
+        newG.CamTransform = refG.CamTransform;
+        newG.impactEffect = refG.impactEffect;
+
+        newG.text = refG.text;
+
+        newG.enabled = true;
+        
+
+        selectedWeapon = transform.childCount-1;
+        SelectWeapon();
     }
 }
