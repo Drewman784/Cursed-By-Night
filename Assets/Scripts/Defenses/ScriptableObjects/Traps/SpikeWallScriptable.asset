@@ -22,7 +22,7 @@ MonoBehaviour:
   repairedMat: {fileID: 2100000, guid: 54f042510f47a4e69b735f06398ef93e, type: 2}
   inactiveMat: {fileID: 2100000, guid: 87dc018f3b6594a1eb19c5b3f3e2c137, type: 2}
   moveable: 1
-  trapDamageDealt: 5
+  trapDamageDealt: 45
   trapActiveLength: 5
   repairSound: {fileID: 8300000, guid: 8713a926df7104bd29279154cbfb63cb, type: 3}
   breakSound: {fileID: 8300000, guid: 45336427b9e124d5b94fc513473d60f3, type: 3}
