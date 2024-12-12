@@ -81,6 +81,8 @@ public class WeaponSwitching : MonoBehaviour
 
     public void GiveWeaponMenuState(bool menu){
         Debug.Log("wp: " + menu);
-        transform.GetChild(selectedWeapon).GetComponent<GunSystem>().SetMenu(menu);
+        if(selectedWeapon!=4){
+            transform.GetChild(selectedWeapon).GetComponent<GunSystem>().SetMenu(menu);
+        }
     }
 }
